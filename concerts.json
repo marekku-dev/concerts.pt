@@ -243,5 +243,19 @@
     "price": "€41...216",
     "link": "https://blueticket.meo.pt/pt/Event/15722",
     "festival": null
+  },
+  {
+    "artist": "Jungle",
+    "dates": ["2026-10-24"],
+    "price": "€48...67",
+    "link": "https://www.ticketline.pt/en/evento/jungle-103353/sessao/124985_3957_1792868400",
+    "festival": null
+  },
+  {
+    "artist": "Pitbull",
+    "dates": ["2026-11-02"],
+    "price": "€52...400",
+    "link": "https://arena.meo.pt/en/agenda/pitbull-im-back_en/15887",
+    "festival": null
   }
 ]
