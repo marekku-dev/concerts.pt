@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+body {
+	font-family: 'Arial';
+	background-color: #f5f5f5;
+}
+
+a {
+	color: #000;
+}
+
+
+h1, h2, h3 {
+	font-weight: 400;
+}
+
+.title {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+footer {
+	padding-bottom: 30px;
+	display: flex;
+	justify-content: center;
+	color: #b3b3b3;
+}
+
+footer a {
+	color: #b3b3b3;
+}
+
+.title {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.intro {
+	color: #b3b3b3;
+	margin: 5px 0;
+	text-align: justify;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.festival-header h3 {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.update {
+	width: 100%;
+	text-align: right;
+	color: #b3b3b3;
+}
+
+.wrapper {
+	background-color: #fff;
+	width: 360px;
+	margin: 20px auto;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 160px;
+}
+
+#concerts, .festival-concerts {
+	display: flex;
+	flex-direction: column;
+	padding: 5px 0;
+	gap: 5px;
+}
+
+#concerts a {
+	text-decoration: none;
+}
+
+.price-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.ticket-icon {
+    height: 16px;
+    flex-shrink: 0;
+    /*transition: filter 0.3s ease;*/
+}
+
+.festival-block {
+	border-top: solid 1px #000;
+	border-bottom: solid 1px #000;
+	padding: 15px 0;
+	margin: 10px 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.festival-block + .festival-block {
+    margin-top: -16px; /* -1px (граница) + -5px (gap) */
+}
+
+.concert-row, .festival-concert {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.price {
+	color: #b3b3b3;
+}
+
+.concert-row span {
+	margin-left: 2px;
+}
+
+.concert-link:hover .price, .festival-link:hover .price {
+    color: black;
+}
+
+.concert-link:hover .ticket-icon, .festival-link:hover .ticket-icon {
+    filter: brightness(0);
+}

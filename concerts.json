@@ -1,0 +1,215 @@
+[
+  {
+    "artist": "The Kooks",
+    "dates": ["2026-03-06"],
+    "price": "€26...39",
+    "link": "https://www.ticketline.pt/en/evento/the-kooks-european-tour-2026-97269/sessao/119276_30_1772830800",
+    "festival": null
+  },
+  {
+    "artist": "Fatboy Slim",
+    "dates": ["2026-03-12", "2026-03-13"],
+    "price": "€20...35",
+    "link": "https://shotgun.live/en/events/fatboy-slim-8-marvila-lisbon",
+    "festival": null
+  },
+  {
+    "artist": "Ludovico Einaudi",
+    "dates": ["2026-03-24", "2026-03-25"],
+    "price": "€35...120",
+    "link": "https://www.bol.pt/Comprar/Bilhetes/162455-ludovico_einaudi-coliseu_de_lisboa/Sessoes",
+    "festival": null
+  },
+  {
+    "artist": "Hans Zimmer",
+    "dates": ["2026-03-31", "2026-04-01"],
+    "price": "€60...120",
+    "link": "https://www.ticketline.pt/en/evento/hans-zimmer-live-the-next-level-87081",
+    "festival": null
+  },
+  {
+    "artist": "Tame Impala",
+    "dates": ["2026-04-04", "2026-04-05"],
+    "price": "€53...86",
+    "link": "https://www.ticketline.pt/pacote/lisboa-tame-impala-97733",
+    "festival": null
+  },
+  {
+    "artist": "Rosalia",
+    "dates": ["2026-04-08", "2026-04-09"],
+    "price": "€50...425",
+    "link": "https://arena.meo.pt/agenda/rosalia-lux-tour-2026_pt/15649",
+    "festival": null
+  },
+  {
+    "artist": "Eros Ramazzotti",
+    "dates": ["2026-05-06"],
+    "price": "€45...240",
+    "link": "https://www.ticketline.pt/pt/evento/eros-ramazzotti-una-storia-importante-91848",
+    "festival": null
+  },
+  {
+    "artist": "Skillet",
+    "dates": ["2026-05-23"],
+    "price": "€45...75",
+    "link": "https://blueticket.meo.pt/pt/event/15511",
+    "festival": null
+  },
+  {
+    "artist": "Bad Bunny",
+    "dates": ["2026-05-26", "2026-05-27"],
+    "price": "€105...545",
+    "link": "https://blueticket.meo.pt/pt/event/14557/bad-bunny-world-tour-debi-tirar-mas-fotos",
+    "festival": null
+  },
+  {
+    "artist": "Doja Cat",
+    "dates": ["2026-06-02"],
+    "price": "€45...475",
+    "link": "https://blueticket.meo.pt/en/event/15520/purchase",
+    "festival": null
+  },
+  {
+    "type": "festival",
+    "name": "PRIMAVERA PORTO",
+    "pricing": "1 day – €75, 4 days – €180",
+    "link": "https://primaverasound.com",
+    "concerts": [
+      {
+        "artist": "the xx",
+        "dates": ["2026-06-11"]
+      },
+      {
+        "artist": "Gorillaz",
+        "dates": ["2026-06-12"]
+      },
+      {
+        "artist": "Massive Attack",
+        "dates": ["2026-06-13"]
+      },
+      {
+        "artist": "Peggy Gou",
+        "dates": ["2026-06-14"]
+      }
+    ]
+  },
+  {
+    "type": "festival",
+    "name": "ROCK IN RIO",
+    "pricing": "1 day – €89, 4 days – €157",
+    "link": "https://rockinrio.com",
+    "concerts": [
+      {
+        "artist": "Katy Perry",
+        "dates": ["2026-06-20"]
+      },
+      {
+        "artist": "Linkin Park",
+        "dates": ["2026-06-21"]
+      }
+    ]
+  },
+  {
+    "artist": "Iron Maiden",
+    "dates": ["2026-07-07"],
+    "price": "€70...90",
+    "link": "https://www.ticketline.pt/evento/iron-maiden-97240/sessao/119247_1153_1783449000",
+    "festival": null
+  },
+  {
+    "artist": "Scorpions",
+    "dates": ["2026-07-08"],
+    "price": "€45...65",
+    "link": "https://www.ticketline.pt/evento/scorpions-coming-home-2026-100109/sessao/121913_3957_1783540800",
+    "festival": null
+  },
+  {
+    "type": "festival",
+    "name": "NOS ALIVE",
+    "pricing": "1 day – €84, 2 days – €168, 3 days – €199",
+    "link": "https://nosalive.com/",
+    "concerts": [
+      {
+        "artist": "Twenty One Pilots",
+        "dates": ["2026-07-09"]
+      },
+      {
+        "artist": "Nick Cave & The Bad Seeds",
+        "dates": ["2026-07-09"]
+      },
+      {
+        "artist": "Foo Fighters",
+        "dates": ["2026-07-10"]
+      },
+      {
+        "artist": "Florence + The Machine",
+        "dates": ["2026-07-11"]
+      },
+      {
+        "artist": "Lorde",
+        "dates": ["2026-07-11"]
+      },
+      {
+        "artist": "Pixies",
+        "dates": ["2026-07-11"]
+      }
+    ]
+  },
+  {
+    "type": "festival",
+    "name": "Ageas Cooljazz",
+    "pricing": "1 day – €35...75",
+    "link": "https://www.ageascooljazz.pt/index.html",
+    "concerts": [
+      {
+        "artist": "Loyle Carner",
+        "dates": ["2026-07-15"]
+      },
+      {
+        "artist": "Jamiroquai",
+        "dates": ["2026-07-18"]
+      },
+      {
+        "artist": "Franz Ferdinand",
+        "dates": ["2026-07-25"]
+      }
+    ]
+  },
+  {
+    "type": "festival",
+    "name": "MEO KALORAMA",
+    "pricing": "3 days – €120",
+    "link": "https://meokalorama.pt/",
+    "concerts": [
+      {
+        "artist": "Deftones",
+        "dates": ["2026-08-28"]
+      },
+      {
+        "artist": "Robbie Williams",
+        "dates": ["2026-08-29"]
+      }
+    ]
+  },
+  {
+    "artist": "The Weeknd",
+    "dates": ["2026-09-05", "2026-09-06"],
+    "price": "€71...546",
+    "link": "https://blueticket.meo.pt/pt/tour/107/the-weeknd-after-hours-til-dawn-tour-5-e-6-set",
+    "festival": null
+  },
+  {
+    "artist": "Mac DeMarco",
+    "dates": ["2026-09-20"],
+    "price": "€36",
+    "link": "https://feverup.com/m/476596?cp_landing_source=www.primaverasound",
+    "festival": null
+  },
+  {
+    "artist": "Evanescence",
+    "dates": ["2026-10-04"],
+    "price": "€41...216",
+    "link": "https://blueticket.meo.pt/pt/Event/15722",
+    "festival": null
+  }
+]

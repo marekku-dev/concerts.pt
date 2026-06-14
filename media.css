@@ -1,0 +1,13 @@
+@media (max-width: 768px) {
+
+body {
+	background-color: #fff;
+}
+
+.wrapper {
+	width: 100vw;
+	border-radius: 0;
+	margin: 0;
+}
+
+}
