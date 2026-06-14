@@ -129,3 +129,49 @@ footer a {
 .concert-link:hover .ticket-icon, .festival-link:hover .ticket-icon {
     filter: brightness(0);
 }
+
+.past, .past a, .past .price {
+    color: #b3b3b3;
+}
+
+.past .ticket-icon {
+    filter: opacity(0.35);
+}
+
+.today-divider {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.today-divider-past {
+    color: #b3b3b3;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.today-line {
+    height: 1px;
+    background-color: #000;
+    margin: 0 -40px;
+}
+
+@media (max-width: 768px) {
+    .today-line {
+        margin: 0;
+    }
+}
+
+.today-divider-upcoming {
+    color: #000;
+    text-align: center;
+    margin-top: 4px;
+}
+
+.festival-block.no-border-bottom {
+    border-bottom: none;
+}
+
+.festival-block.no-border-top {
+    border-top: none;
+}
