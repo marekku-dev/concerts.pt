@@ -110,6 +110,18 @@
     ]
   },
   {
+    "type": "festival",
+    "name": "MIMO",
+    "pricing": "Free",
+    "link": "https://mimofestival.com/2026/en/portfolio-item/tricky/",
+    "concerts": [
+      {
+        "artist": "Tricky",
+        "dates": ["2026-07-04"]
+      }
+    ]
+  },
+  {
     "artist": "Iron Maiden",
     "dates": ["2026-07-07"],
     "price": "€70...90",
