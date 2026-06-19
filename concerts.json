@@ -77,19 +77,23 @@
     "concerts": [
       {
         "artist": "the xx",
-        "dates": ["2026-06-11"]
+        "dates": ["2026-06-11"],
+        "support": []
       },
       {
         "artist": "Gorillaz",
-        "dates": ["2026-06-12"]
+        "dates": ["2026-06-12"],
+        "support": []
       },
       {
         "artist": "Massive Attack",
-        "dates": ["2026-06-13"]
+        "dates": ["2026-06-13"],
+        "support": []
       },
       {
         "artist": "Peggy Gou",
-        "dates": ["2026-06-14"]
+        "dates": ["2026-06-14"],
+        "support": []
       }
     ]
   },
@@ -101,19 +105,23 @@
     "concerts": [
       {
         "artist": "Katy Perry",
-        "dates": ["2026-06-20"]
+        "dates": ["2026-06-20"],
+        "support": ["Charlie Puth", "Pedro Sampaio", "Calema", "Alok", "Audrey Nuna", "Nena", "Maninho", "Bebe Rexha", "Bárbara Bandeira", "Napa", "Sofia Camara", "Zarko", "Carol Biazin", "Joyce Alane"]
       },
       {
         "artist": "Linkin Park",
-        "dates": ["2026-06-21"]
+        "dates": ["2026-06-21"],
+        "support": ["Cypress Hill", "The Pretty Reckless", "Grandson", "Kaiser Chiefs", "Hoobastank", "Blasted Mechanism", "Tara Perdida", "Sepultura", "P.O.D.", "Sam the Kid com Orquestra e Orelha Negra", "Dealema", "Samuel Úria", "Jimmy P", "Diego Miranda"]
       },
       {
         "artist": "Rod Stewart",
-        "dates": ["2026-06-27"]
+        "dates": ["2026-06-27"],
+        "support": ["Cyndi Lauper", "Shaggy", "4 Non Blondes", "Xutos & Pontapés", "GNR", "UHF", "Jafumega", "Joss Stone", "Belo", "The Wailers", "Syro", "Bateu Matou", "Bia Caboz", "Bento Gil", "Melly"]
       },
       {
         "artist": "21 Savage",
-        "dates": ["2026-06-28"]
+        "dates": ["2026-06-28"],
+        "support": ["Central Cee", "Rema", "Matuê", "Filipe Ret", "Dennis", "Carlão", "Irina Barros", "Lola Índigo", "CeeLo Green", "Valete", "Karetus", "King Bigs", "DJ Bigs & DJ Glue", "Rima.pt"]
       }
     ]
   },
@@ -124,8 +132,19 @@
     "link": "https://mimofestival.com/2026/en/portfolio-item/tricky/",
     "concerts": [
       {
+        "artist": "Oumou Sangaré",
+        "dates": ["2026-07-03"],
+        "support": ["Fernanda Abreu", "Barbatuques", "Bianca Gismonti & Manuel de Oliveira feat. Ricardo Ribeiro", "Accademia del Piacere", "DJ Andy Smith (ex-Portishead)", "Farofa", "DJ Joya"]
+      },
+      {
         "artist": "Tricky",
-        "dates": ["2026-07-04"]
+        "dates": ["2026-07-04"],
+        "support": ["Papillon", "Melly", "Pedro Emanuel Pereira", "Alaíde Costa, Cristovão Bastos & Mauro Senise", "Alzira E", "DJ Reborn (DJ oficial MS Lauryn Hill)", "Batucadeiras das Olaias", "Coro Espontâneo", "Os Amigos das Concertinas de Gominhães", "Ana Pacheco", "Balskandal"]
+      },
+      {
+        "artist": "Daddy G (Massive Attack)",
+        "dates": ["2026-07-05"],
+        "support": ["Zé Ibarra", "K.O.G.", "La Litanie des Cimes & Mah Damba", "Unsafe Space Garden", "Aline Paes", "Coletivo Gira", "Rui Soares & Fabiana Magalhães", "DJ ZZML", "Tor4"]
       }
     ]
   },
@@ -150,28 +169,19 @@
     "link": "https://nosalive.com/",
     "concerts": [
       {
-        "artist": "Twenty One Pilots",
-        "dates": ["2026-07-09"]
-      },
-      {
-        "artist": "Nick Cave & The Bad Seeds",
-        "dates": ["2026-07-09"]
+        "artist": "Twenty One Pilots, Nick Cave & The Bad Seeds",
+        "dates": ["2026-07-09"],
+        "support": ["A Perfect Circle", "Alabama Shakes", "Dogstar", "Matt Berninger", "The Royston Club", "Tomora", "Xinobi (live)", "Polo & Pan (DJ set)", "Linka Moja", "Midnight Generation", "Gui Aly", "Rumia", "Maria Lui", "Saya Noé", "Curto e Grosso (Eduardo Madeira & Jel)", "Beatriz Gosta", "Vasco Pereira Coutinho", "Bolinha Nunes", "Rui Mirama", "Inês Baptista", "João Nuno Gonçalo", "Na Wall convida Francisco Reis & Rafael Jesus", "João Maria", "Rita Maia", "Hetta", "Duques do Precariado", "Neon Soho", "Deixa Rolá", "Diana Vilarinho", "Geadas", "Orquestra Maré do Amanhã"]
       },
       {
         "artist": "Foo Fighters",
-        "dates": ["2026-07-10"]
+        "dates": ["2026-07-10"],
+        "support": ["Zara Larsson", "Wolf Alice", "Skunk Anansie", "The War on Drugs", "Palaye Royale", "The Warning", "Jehnny Beth", "SBTRKT (DJ set)", "Digitalism (hybrid live set)", "Fiona Kraft", "Chris Luno", "La Fleur", "Stresshead", "Call Me", "Gilmário Vemba", "Francisco Menezes", "Aqui Ninguém Nos Ouve (Diogo Faro & Isabel Viana)", "Joana Gama", "Hélder Machado", "Pedro Costa Rodrigues", "Madalena Malveiro", "Catarina Moreira", "Ellis Ferrére", "Mutu", "Picas", "Constança Quinteiro", "Inês Sousa", "Ana Sofia Varela", "Fado Máfia", "Playback – Paião por Tigerman"]
       },
       {
-        "artist": "Florence + The Machine",
-        "dates": ["2026-07-11"]
-      },
-      {
-        "artist": "Lorde",
-        "dates": ["2026-07-11"]
-      },
-      {
-        "artist": "Pixies",
-        "dates": ["2026-07-11"]
+        "artist": "Florence + The Machine, Lorde, Pixies",
+        "dates": ["2026-07-11"],
+        "support": ["Buraka Som Sistema", "Teddy Swims", "Alessi Rose", "Don West", "Florence Road", "Noiserv", "Zimmer90", "Modeselektor (DJ set)", "Titica", "Deize Tigrona", "Arthi", "Fidju Kitxora", "Pedro da Linha (live)", "Rita Cortezão", "Hugo Sousa", "Duarte Pita Negrão", "Dagu", "João Pinto", "Joana Caldeira", "Vitor Costa", "Joana Oliveira", "Catarina Rocha", "João Miguel Costa", "Sheri Vari", "Redoma", "Razy", "Suzana Francês", "Esteves sem Metafísica", "Beatriz Felício", "Valéria", "Playback – Paião por Tigerman"]
       }
     ]
   },
@@ -183,15 +193,18 @@
     "concerts": [
       {
         "artist": "Loyle Carner",
-        "dates": ["2026-07-15"]
+        "dates": ["2026-07-15"],
+        "support": []
       },
       {
         "artist": "Jamiroquai",
-        "dates": ["2026-07-18"]
+        "dates": ["2026-07-18"],
+        "support": []
       },
       {
         "artist": "Franz Ferdinand",
-        "dates": ["2026-07-25"]
+        "dates": ["2026-07-25"],
+        "support": []
       }
     ]
   },
@@ -203,15 +216,18 @@
     "concerts": [
       {
         "artist": "Robbie Williams",
-        "dates": ["2026-08-28"]
+        "dates": ["2026-08-28"],
+        "support": ["Grace Jones", "Interpol", "Judeline", "Maro", "Anna von Hausswolff", "Melody's Echo Chamber", "Angine de Poitrine", "A Sul", "Folk Bitch Trio", "Budino", "Hunee", "Lola Haro b2b Roman Flügel", "Nathan Fake (live)", "Viegas"]
       },
       {
         "artist": "Ms. Lauryn Hill",
-        "dates": ["2026-08-29"]
+        "dates": ["2026-08-29"],
+        "support": ["Wyclef Jean", "YG Marley and Zion Marley", "Yasiin Bey x Talib Kweli - Black Star", "Ravyn Lenae", "Vince Staples", "Unknown Mortal Orchestra", "Criolo, Amaro & Dino", "Bruno Pernadas", "Femme Falafel", "Joshua Idehen", "Raquel Martins", "Tyler Ballgame", "Mind Enterprises", "Hiroko Yamamura", "Horse Meat Disco", "Mário Valente", "Suchi"]
       },
       {
         "artist": "Deftones",
-        "dates": ["2026-08-30"]
+        "dates": ["2026-08-30"],
+        "support": ["Turnstile", "Clipse", "Freddie Gibbs + The Alchemist", "High Vis", "Peaches", "Wednesday", "Panic Shack", "Pelados", "Travo", "Residência Artística by Chelas é o Sítio", "DJ Lycox", "DJ Marfox", "Helviofox b2b Diionyg", "Nídia", "O Ghettão", "Soundpreta"]
       }
     ]
   },

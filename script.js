@@ -70,6 +70,19 @@ fetch('concerts.json')
             });
         }
 
+        // Кнопка раскрытия всех исполнителей фестивалей
+        let expanded = false;
+        const expandBtn = document.createElement('button');
+        expandBtn.className = 'toggle-past expand-lineup';
+        expandBtn.addEventListener('click', () => {
+            expanded = !expanded;
+            render();
+        });
+
+        // Строка с кнопками над списком
+        const controlsRow = document.createElement('div');
+        controlsRow.className = 'controls-row';
+
         function insertDivider() {
             const divider = document.createElement('div');
             divider.className = 'today-divider';
@@ -92,10 +105,14 @@ fetch('concerts.json')
         container.innerHTML = '';
         dividerInserted = false;
 
+        controlsRow.innerHTML = '';
         if (toggleBtn) {
             toggleBtn.textContent = showPast ? 'Hide past concerts' : 'Show past concerts';
-            container.appendChild(toggleBtn);
+            controlsRow.appendChild(toggleBtn);
         }
+        expandBtn.textContent = expanded ? 'Collapse' : 'Expand';
+        controlsRow.appendChild(expandBtn);
+        container.appendChild(controlsRow);
 
         data.forEach((item, index) => {
             const lastDate = getLastDate(item);
@@ -116,7 +133,7 @@ fetch('concerts.json')
                 const festivalDiv = document.createElement('div');
                 let festClass = 'festival-block';
                 if (isPast) festClass += ' past';
-                if (!dividerInserted || (index > 0 && !isPast && container.lastElementChild && container.lastElementChild.classList.contains('today-divider'))) {
+                if (index > 0 && !isPast && container.lastElementChild && container.lastElementChild.classList.contains('today-divider')) {
                     festClass += ' no-border-top';
                 }
                 festivalDiv.className = festClass;
@@ -126,9 +143,15 @@ fetch('concerts.json')
                 item.concerts.forEach(concert => {
                     const formattedDate = formatShortDate(concert.dates[0]);
 
+                    let artistText = concert.artist;
+                    if (expanded && concert.support && concert.support.length) {
+                        const shown = concert.support.slice(0, 4);
+                        artistText += `<span class="support">, ${shown.join(', ')}</span>`;
+                    }
+
                     concertsHTML += `
                         <div class="festival-concert">
-                            <span class="artist">${concert.artist}</span>
+                            <span class="artist">${artistText}</span>
                             <span class="date">${formattedDate}</span>
                         </div>
                     `;

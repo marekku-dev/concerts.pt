@@ -118,6 +118,13 @@ footer a {
 	color: #b3b3b3;
 }
 
+.festival-concert .date {
+	flex-shrink: 0;
+	min-width: 4.5em;
+	text-align: right;
+	white-space: nowrap;
+}
+
 .concert-row span {
 	margin-left: 2px;
 }
@@ -136,6 +143,22 @@ footer a {
 
 .past .ticket-icon {
     filter: opacity(0.35);
+}
+
+.controls-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.expand-lineup {
+    margin-left: auto;
+}
+
+.support {
+    color: #b3b3b3;
 }
 
 .toggle-past {
