@@ -106,7 +106,7 @@ fetch('concerts.json')
                 festivalDiv.innerHTML = `
                     <a href="${item.link}" target="_blank" class="festival-link">
                         <div class="festival-header">
-                            <h3>${item.name}</h3>
+                            <h3>${item.name}<!-- <span class="fest-badge">FEST</span> --></h3>
                             <div class="price-wrapper">
                                 <p class="price">${item.pricing}</p>
                                 <img src="ticket.svg" alt="Ticket" class="ticket-icon">
