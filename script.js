@@ -46,7 +46,6 @@ fetch('concerts.json')
         const container = document.getElementById('concerts');
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-        let dividerInserted = false;
 
         function getLastDate(item) {
             if (item.type === 'festival') {
@@ -54,6 +53,21 @@ fetch('concerts.json')
                 return new Date(allDates[allDates.length - 1]);
             }
             return new Date(item.dates[item.dates.length - 1]);
+        }
+
+        // Есть ли вообще прошедшие концерты — если нет, кнопку не показываем
+        const hasPast = data.some(item => getLastDate(item) < today);
+
+        // Кнопка переключения над списком
+        let showPast = false;
+        let toggleBtn = null;
+        if (hasPast) {
+            toggleBtn = document.createElement('button');
+            toggleBtn.className = 'toggle-past';
+            toggleBtn.addEventListener('click', () => {
+                showPast = !showPast;
+                render();
+            });
         }
 
         function insertDivider() {
@@ -72,11 +86,28 @@ fetch('concerts.json')
             dividerInserted = true;
         }
 
+        let dividerInserted = false;
+
+        function render() {
+        container.innerHTML = '';
+        dividerInserted = false;
+
+        if (toggleBtn) {
+            toggleBtn.textContent = showPast ? 'Hide past concerts' : 'Show past concerts';
+            container.appendChild(toggleBtn);
+        }
+
         data.forEach((item, index) => {
             const lastDate = getLastDate(item);
             const isPast = lastDate < today;
 
-            if (!dividerInserted && !isPast) {
+            // По умолчанию прошедшие концерты скрыты
+            if (isPast && !showPast) {
+                return;
+            }
+
+            // Разделитель «past / upcoming» показываем только когда видны прошедшие
+            if (showPast && !dividerInserted && !isPast) {
                 insertDivider();
             }
 
@@ -144,5 +175,8 @@ fetch('concerts.json')
                 container.appendChild(div);
             }
         });
+        }
+
+        render();
     })
     .catch(error => console.error('Ошибка загрузки данных:', error));

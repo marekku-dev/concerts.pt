@@ -69,7 +69,7 @@ footer a {
 	padding: 10px;
 	display: flex;
 	flex-direction: column;
-	gap: 160px;
+	gap: 80px;
 }
 
 #concerts, .festival-concerts {
@@ -136,6 +136,24 @@ footer a {
 
 .past .ticket-icon {
     filter: opacity(0.35);
+}
+
+.toggle-past {
+    align-self: flex-start;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #b3b3b3;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 4px 0;
+    text-decoration: underline dotted;
+    text-underline-offset: 3px;
+}
+
+.toggle-past:hover {
+    color: #000;
 }
 
 .today-divider {
