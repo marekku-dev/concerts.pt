@@ -202,12 +202,16 @@
     "link": "https://meokalorama.pt/",
     "concerts": [
       {
-        "artist": "Deftones",
+        "artist": "Robbie Williams",
         "dates": ["2026-08-28"]
       },
       {
-        "artist": "Robbie Williams",
+        "artist": "Ms. Lauryn Hill",
         "dates": ["2026-08-29"]
+      },
+      {
+        "artist": "Deftones",
+        "dates": ["2026-08-30"]
       }
     ]
   },
