@@ -114,6 +114,24 @@ footer a {
 	justify-content: space-between;
 }
 
+.concert-row {
+	align-items: flex-start;
+	gap: 10px;
+}
+
+.concert-meta {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	flex-shrink: 0;
+	text-align: right;
+}
+
+.concert-meta p {
+	white-space: nowrap;
+}
+
+
 .price {
 	color: #b3b3b3;
 }
@@ -123,10 +141,6 @@ footer a {
 	min-width: 4.5em;
 	text-align: right;
 	white-space: nowrap;
-}
-
-.concert-row span {
-	margin-left: 2px;
 }
 
 .concert-link:hover .price, .festival-link:hover .price {
@@ -149,16 +163,27 @@ footer a {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #fff;
+    padding: 5px 0;
 }
 
 .expand-lineup {
-    margin-left: auto;
+    margin-left: 0;
 }
 
 .support {
     color: #b3b3b3;
+}
+
+.last-in-pt {
+    color: #b3b3b3;
+    font-size: 16px;
+    line-height: 20px;
 }
 
 .toggle-past {
@@ -215,4 +240,96 @@ footer a {
 
 .festival-block.no-border-top {
     border-top: none;
+}
+
+/* Newsletter subscription */
+.subscribe {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.subscribe-copy h2 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.subscribe-copy p {
+    color: #b3b3b3;
+    text-align: justify;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.subscribe-form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.subscribe-input {
+    flex: 1;
+    min-width: 0;
+    background: none;
+    border: none;
+    border-bottom: solid 1px #000;
+    padding: 4px 0;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+}
+
+.subscribe-input::placeholder {
+    color: #b3b3b3;
+}
+
+.subscribe-input:focus {
+    outline: none;
+}
+
+.subscribe-button {
+    flex-shrink: 0;
+    background: none;
+    border: solid 1px #000;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+    padding: 4px 12px;
+}
+
+.subscribe-button:hover:not(:disabled) {
+    background-color: #000;
+    color: #fff;
+}
+
+.subscribe-button:disabled {
+    cursor: default;
+    color: #b3b3b3;
+    border-color: #b3b3b3;
+}
+
+.subscribe-message {
+    flex-basis: 100%;
+    color: #b3b3b3;
+    padding-top: 5px;
+}
+
+.subscribe-message:empty {
+    display: none;
+}
+
+.subscribe-message.success {
+    color: #000;
+}
+
+.subscribe-message.error {
+    color: #000;
+    text-decoration: underline dotted;
+    text-underline-offset: 3px;
 }

@@ -3,7 +3,7 @@ function formatDates(dates) {
     if (dates.length === 1) {
         // Одна дата: "March 6"
         return new Date(dates[0]).toLocaleDateString('en-US', {
-            month: 'long',
+            month: 'short',
             day: 'numeric'
         });
     }
@@ -13,7 +13,7 @@ function formatDates(dates) {
 
     const firstDay = firstDate.getDate();
     const lastDay = lastDate.getDate();
-    const month = firstDate.toLocaleDateString('en-US', { month: 'long' });
+    const month = firstDate.toLocaleDateString('en-US', { month: 'short' });
 
     // Проверяем, в одном ли месяце даты
     if (firstDate.getMonth() === lastDate.getMonth()) {
@@ -26,8 +26,8 @@ function formatDates(dates) {
         }
     } else {
         // Разные месяцы: "April 30 – May 1"
-        const firstMonth = firstDate.toLocaleDateString('en-US', { month: 'long' });
-        const lastMonth = lastDate.toLocaleDateString('en-US', { month: 'long' });
+        const firstMonth = firstDate.toLocaleDateString('en-US', { month: 'short' });
+        const lastMonth = lastDate.toLocaleDateString('en-US', { month: 'short' });
         return `${firstMonth} ${firstDay} & ${lastMonth} ${lastDay}`;
     }
 }
@@ -36,7 +36,7 @@ function formatDates(dates) {
 function formatShortDate(date) {
     return new Date(date).toLocaleDateString('en-US', {
         day: 'numeric',
-        month: 'long'
+        month: 'short'
     });
 }
 
@@ -106,11 +106,12 @@ fetch('concerts.json')
         dividerInserted = false;
 
         controlsRow.innerHTML = '';
-        if (toggleBtn) {
-            toggleBtn.textContent = showPast ? 'Hide past concerts' : 'Show past concerts';
-            controlsRow.appendChild(toggleBtn);
-        }
-        expandBtn.textContent = expanded ? 'Collapse' : 'Expand';
+        // Кнопка показа прошедших концертов временно отключена
+        // if (toggleBtn) {
+        //     toggleBtn.textContent = showPast ? 'Hide past concerts' : 'Show past concerts';
+        //     controlsRow.appendChild(toggleBtn);
+        // }
+        expandBtn.textContent = expanded ? 'Hide details' : 'Show details';
         controlsRow.appendChild(expandBtn);
         container.appendChild(controlsRow);
 
@@ -157,14 +158,21 @@ fetch('concerts.json')
                     `;
                 });
 
+                let festPriceHTML = '';
+                if (expanded) {
+                    festPriceHTML = `
+                        <div class="price-wrapper">
+                            <p class="price">${item.pricing}</p>
+                            <img src="ticket.svg" alt="Ticket" class="ticket-icon">
+                        </div>
+                    `;
+                }
+
                 festivalDiv.innerHTML = `
                     <a href="${item.link}" target="_blank" class="festival-link">
                         <div class="festival-header">
                             <h3>${item.name}<!-- <span class="fest-badge">FEST</span> --></h3>
-                            <div class="price-wrapper">
-                                <p class="price">${item.pricing}</p>
-                                <img src="ticket.svg" alt="Ticket" class="ticket-icon">
-                            </div>
+                            ${festPriceHTML}
                         </div>
                         <div class="festival-concerts">
                             ${concertsHTML}
@@ -181,16 +189,32 @@ fetch('concerts.json')
 
                 const formattedDates = formatDates(item.dates);
 
+                let lastInPtHTML = '';
+                if (expanded && item.lastInPortugal) {
+                    lastInPtHTML = `<p class="last-in-pt">First time since ${item.lastInPortugal}</p>`;
+                }
+
+                let priceHTML = '';
+                if (expanded) {
+                    priceHTML = `
+                        <span class="price-wrapper">
+                            <span class="price">${item.price}</span>
+                            <img src="ticket.svg" alt="Ticket" class="ticket-icon">
+                        </span>
+                    `;
+                }
+
                 div.innerHTML = `
                     <a href="${item.link}" target="_blank" class="concert-link">
                         <div class="concert-row">
-                            <h3>${item.artist}
-                                <span class="price-wrapper">
-                                    <span class="price">${item.price}</span>
-                                    <img src="ticket.svg" alt="Ticket" class="ticket-icon">
-                                </span>
-                            </h3>
-                            <p>${formattedDates}</p>
+                            <div class="concert-name">
+                                <h3>${item.artist}</h3>
+                                ${lastInPtHTML}
+                            </div>
+                            <div class="concert-meta">
+                                <p>${formattedDates}</p>
+                                ${priceHTML}
+                            </div>
                         </div>
                     </a>
                 `;
@@ -203,3 +227,58 @@ fetch('concerts.json')
         render();
     })
     .catch(error => console.error('Ошибка загрузки данных:', error));
+
+// Подписка на рассылку
+// TODO: подставь сюда свой endpoint от Brevo/Zoho, когда будет готов.
+// Пока null — форма просто имитирует успешную отправку.
+const SUBSCRIBE_ENDPOINT = null;
+
+(function () {
+    const form = document.querySelector('.subscribe-form');
+    if (!form) return;
+
+    const input = form.querySelector('.subscribe-input');
+    const button = form.querySelector('.subscribe-button');
+    const message = form.querySelector('.subscribe-message');
+
+    function setMessage(text, type) {
+        message.textContent = text;
+        message.classList.remove('success', 'error');
+        if (type) message.classList.add(type);
+    }
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const email = input.value.trim();
+        if (!email || !input.checkValidity()) {
+            setMessage('Please enter a valid email address.', 'error');
+            input.focus();
+            return;
+        }
+
+        button.disabled = true;
+        setMessage('Subscribing…', null);
+
+        try {
+            if (SUBSCRIBE_ENDPOINT) {
+                const res = await fetch(SUBSCRIBE_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                if (!res.ok) throw new Error('Request failed');
+            } else {
+                // Заглушка, пока бэкенд не подключён
+                await new Promise(r => setTimeout(r, 500));
+            }
+
+            form.reset();
+            setMessage("You're in. See you at the start of the month.", 'success');
+            button.disabled = false;
+        } catch (err) {
+            setMessage('Something went wrong. Please try again.', 'error');
+            button.disabled = false;
+        }
+    });
+})();

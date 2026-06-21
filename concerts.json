@@ -1,73 +1,119 @@
 [
   {
     "artist": "The Kooks",
-    "dates": ["2026-03-06"],
+    "dates": [
+      "2026-03-06"
+    ],
     "price": "€26...39",
     "link": "https://www.ticketline.pt/en/evento/the-kooks-european-tour-2026-97269/sessao/119276_30_1772830800",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-20"
   },
   {
     "artist": "Fatboy Slim",
-    "dates": ["2026-03-12", "2026-03-13"],
+    "dates": [
+      "2026-03-12",
+      "2026-03-13"
+    ],
     "price": "€20...35",
     "link": "https://shotgun.live/en/events/fatboy-slim-8-marvila-lisbon",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-20"
   },
   {
     "artist": "Ludovico Einaudi",
-    "dates": ["2026-03-24", "2026-03-25"],
+    "dates": [
+      "2026-03-24",
+      "2026-03-25"
+    ],
     "price": "€35...120",
     "link": "https://www.bol.pt/Comprar/Bilhetes/162455-ludovico_einaudi-coliseu_de_lisboa/Sessoes",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-20"
   },
   {
     "artist": "Hans Zimmer",
-    "dates": ["2026-03-31", "2026-04-01"],
+    "dates": [
+      "2026-03-31",
+      "2026-04-01"
+    ],
     "price": "€60...120",
     "link": "https://www.ticketline.pt/en/evento/hans-zimmer-live-the-next-level-87081",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-20"
   },
   {
     "artist": "Tame Impala",
-    "dates": ["2026-04-04", "2026-04-05"],
+    "dates": [
+      "2026-04-04",
+      "2026-04-05"
+    ],
     "price": "€53...86",
     "link": "https://www.ticketline.pt/pacote/lisboa-tame-impala-97733",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-20"
   },
   {
     "artist": "Rosalia",
-    "dates": ["2026-04-08", "2026-04-09"],
+    "dates": [
+      "2026-04-08",
+      "2026-04-09"
+    ],
     "price": "€50...425",
     "link": "https://arena.meo.pt/agenda/rosalia-lux-tour-2026_pt/15649",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-20"
   },
   {
     "artist": "Eros Ramazzotti",
-    "dates": ["2026-05-06"],
+    "dates": [
+      "2026-05-06"
+    ],
     "price": "€45...240",
     "link": "https://www.ticketline.pt/pt/evento/eros-ramazzotti-una-storia-importante-91848",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-20"
   },
   {
     "artist": "Skillet",
-    "dates": ["2026-05-23"],
+    "dates": [
+      "2026-05-23"
+    ],
     "price": "€45...75",
     "link": "https://blueticket.meo.pt/pt/event/15511",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-20"
   },
   {
     "artist": "Bad Bunny",
-    "dates": ["2026-05-26", "2026-05-27"],
+    "dates": [
+      "2026-05-26",
+      "2026-05-27"
+    ],
     "price": "€105...545",
     "link": "https://blueticket.meo.pt/pt/event/14557/bad-bunny-world-tour-debi-tirar-mas-fotos",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-20"
   },
   {
     "artist": "Doja Cat",
-    "dates": ["2026-06-02"],
+    "dates": [
+      "2026-06-02"
+    ],
     "price": "€45...475",
     "link": "https://blueticket.meo.pt/en/event/15520/purchase",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-20"
   },
   {
     "type": "festival",
@@ -77,25 +123,38 @@
     "concerts": [
       {
         "artist": "the xx",
-        "dates": ["2026-06-11"],
-        "support": []
+        "dates": [
+          "2026-06-11"
+        ],
+        "support": [],
+        "added": "2026-06-20"
       },
       {
         "artist": "Gorillaz",
-        "dates": ["2026-06-12"],
-        "support": []
+        "dates": [
+          "2026-06-12"
+        ],
+        "support": [],
+        "added": "2026-06-20"
       },
       {
         "artist": "Massive Attack",
-        "dates": ["2026-06-13"],
-        "support": []
+        "dates": [
+          "2026-06-13"
+        ],
+        "support": [],
+        "added": "2026-06-20"
       },
       {
         "artist": "Peggy Gou",
-        "dates": ["2026-06-14"],
-        "support": []
+        "dates": [
+          "2026-06-14"
+        ],
+        "support": [],
+        "added": "2026-06-20"
       }
-    ]
+    ],
+    "added": "2026-06-20"
   },
   {
     "type": "festival",
@@ -105,25 +164,99 @@
     "concerts": [
       {
         "artist": "Katy Perry",
-        "dates": ["2026-06-20"],
-        "support": ["Charlie Puth", "Pedro Sampaio", "Calema", "Alok", "Audrey Nuna", "Nena", "Maninho", "Bebe Rexha", "Bárbara Bandeira", "Napa", "Sofia Camara", "Zarko", "Carol Biazin", "Joyce Alane"]
+        "dates": [
+          "2026-06-20"
+        ],
+        "support": [
+          "Charlie Puth",
+          "Pedro Sampaio",
+          "Calema",
+          "Alok",
+          "Audrey Nuna",
+          "Nena",
+          "Maninho",
+          "Bebe Rexha",
+          "Bárbara Bandeira",
+          "Napa",
+          "Sofia Camara",
+          "Zarko",
+          "Carol Biazin",
+          "Joyce Alane"
+        ],
+        "added": "2026-06-20"
       },
       {
         "artist": "Linkin Park",
-        "dates": ["2026-06-21"],
-        "support": ["Cypress Hill", "The Pretty Reckless", "Grandson", "Kaiser Chiefs", "Hoobastank", "Blasted Mechanism", "Tara Perdida", "Sepultura", "P.O.D.", "Sam the Kid com Orquestra e Orelha Negra", "Dealema", "Samuel Úria", "Jimmy P", "Diego Miranda"]
+        "dates": [
+          "2026-06-21"
+        ],
+        "support": [
+          "Cypress Hill",
+          "The Pretty Reckless",
+          "Grandson",
+          "Kaiser Chiefs",
+          "Hoobastank",
+          "Blasted Mechanism",
+          "Tara Perdida",
+          "Sepultura",
+          "P.O.D.",
+          "Sam the Kid com Orquestra e Orelha Negra",
+          "Dealema",
+          "Samuel Úria",
+          "Jimmy P",
+          "Diego Miranda"
+        ],
+        "added": "2026-06-20"
       },
       {
         "artist": "Rod Stewart",
-        "dates": ["2026-06-27"],
-        "support": ["Cyndi Lauper", "Shaggy", "4 Non Blondes", "Xutos & Pontapés", "GNR", "UHF", "Jafumega", "Joss Stone", "Belo", "The Wailers", "Syro", "Bateu Matou", "Bia Caboz", "Bento Gil", "Melly"]
+        "dates": [
+          "2026-06-27"
+        ],
+        "support": [
+          "Cyndi Lauper",
+          "Shaggy",
+          "4 Non Blondes",
+          "Xutos & Pontapés",
+          "GNR",
+          "UHF",
+          "Jafumega",
+          "Joss Stone",
+          "Belo",
+          "The Wailers",
+          "Syro",
+          "Bateu Matou",
+          "Bia Caboz",
+          "Bento Gil",
+          "Melly"
+        ],
+        "added": "2026-06-20"
       },
       {
         "artist": "21 Savage",
-        "dates": ["2026-06-28"],
-        "support": ["Central Cee", "Rema", "Matuê", "Filipe Ret", "Dennis", "Carlão", "Irina Barros", "Lola Índigo", "CeeLo Green", "Valete", "Karetus", "King Bigs", "DJ Bigs & DJ Glue", "Rima.pt"]
+        "dates": [
+          "2026-06-28"
+        ],
+        "support": [
+          "Central Cee",
+          "Rema",
+          "Matuê",
+          "Filipe Ret",
+          "Dennis",
+          "Carlão",
+          "Irina Barros",
+          "Lola Índigo",
+          "CeeLo Green",
+          "Valete",
+          "Karetus",
+          "King Bigs",
+          "DJ Bigs & DJ Glue",
+          "Rima.pt"
+        ],
+        "added": "2026-06-20"
       }
-    ]
+    ],
+    "added": "2026-06-20"
   },
   {
     "type": "festival",
@@ -133,34 +266,82 @@
     "concerts": [
       {
         "artist": "Oumou Sangaré",
-        "dates": ["2026-07-03"],
-        "support": ["Fernanda Abreu", "Barbatuques", "Bianca Gismonti & Manuel de Oliveira feat. Ricardo Ribeiro", "Accademia del Piacere", "DJ Andy Smith (ex-Portishead)", "Farofa", "DJ Joya"]
+        "dates": [
+          "2026-07-03"
+        ],
+        "support": [
+          "Fernanda Abreu",
+          "Barbatuques",
+          "Bianca Gismonti & Manuel de Oliveira feat. Ricardo Ribeiro",
+          "Accademia del Piacere",
+          "DJ Andy Smith (ex-Portishead)",
+          "Farofa",
+          "DJ Joya"
+        ],
+        "added": "2026-06-20"
       },
       {
         "artist": "Tricky",
-        "dates": ["2026-07-04"],
-        "support": ["Papillon", "Melly", "Pedro Emanuel Pereira", "Alaíde Costa, Cristovão Bastos & Mauro Senise", "Alzira E", "DJ Reborn (DJ oficial MS Lauryn Hill)", "Batucadeiras das Olaias", "Coro Espontâneo", "Os Amigos das Concertinas de Gominhães", "Ana Pacheco", "Balskandal"]
+        "dates": [
+          "2026-07-04"
+        ],
+        "support": [
+          "Papillon",
+          "Melly",
+          "Pedro Emanuel Pereira",
+          "Alaíde Costa, Cristovão Bastos & Mauro Senise",
+          "Alzira E",
+          "DJ Reborn (DJ oficial MS Lauryn Hill)",
+          "Batucadeiras das Olaias",
+          "Coro Espontâneo",
+          "Os Amigos das Concertinas de Gominhães",
+          "Ana Pacheco",
+          "Balskandal"
+        ],
+        "added": "2026-06-20"
       },
       {
         "artist": "Daddy G (Massive Attack)",
-        "dates": ["2026-07-05"],
-        "support": ["Zé Ibarra", "K.O.G.", "La Litanie des Cimes & Mah Damba", "Unsafe Space Garden", "Aline Paes", "Coletivo Gira", "Rui Soares & Fabiana Magalhães", "DJ ZZML", "Tor4"]
+        "dates": [
+          "2026-07-05"
+        ],
+        "support": [
+          "Zé Ibarra",
+          "K.O.G.",
+          "La Litanie des Cimes & Mah Damba",
+          "Unsafe Space Garden",
+          "Aline Paes",
+          "Coletivo Gira",
+          "Rui Soares & Fabiana Magalhães",
+          "DJ ZZML",
+          "Tor4"
+        ],
+        "added": "2026-06-20"
       }
-    ]
+    ],
+    "added": "2026-06-20"
   },
   {
     "artist": "Iron Maiden",
-    "dates": ["2026-07-07"],
+    "dates": [
+      "2026-07-07"
+    ],
     "price": "€70...90",
     "link": "https://www.ticketline.pt/evento/iron-maiden-97240/sessao/119247_1153_1783449000",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-20"
   },
   {
     "artist": "Scorpions",
-    "dates": ["2026-07-08"],
+    "dates": [
+      "2026-07-08"
+    ],
     "price": "€45...65",
     "link": "https://www.ticketline.pt/evento/scorpions-coming-home-2026-100109/sessao/121913_3957_1783540800",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-20"
   },
   {
     "type": "festival",
@@ -170,20 +351,125 @@
     "concerts": [
       {
         "artist": "Twenty One Pilots, Nick Cave & The Bad Seeds",
-        "dates": ["2026-07-09"],
-        "support": ["A Perfect Circle", "Alabama Shakes", "Dogstar", "Matt Berninger", "The Royston Club", "Tomora", "Xinobi (live)", "Polo & Pan (DJ set)", "Linka Moja", "Midnight Generation", "Gui Aly", "Rumia", "Maria Lui", "Saya Noé", "Curto e Grosso (Eduardo Madeira & Jel)", "Beatriz Gosta", "Vasco Pereira Coutinho", "Bolinha Nunes", "Rui Mirama", "Inês Baptista", "João Nuno Gonçalo", "Na Wall convida Francisco Reis & Rafael Jesus", "João Maria", "Rita Maia", "Hetta", "Duques do Precariado", "Neon Soho", "Deixa Rolá", "Diana Vilarinho", "Geadas", "Orquestra Maré do Amanhã"]
+        "dates": [
+          "2026-07-09"
+        ],
+        "support": [
+          "A Perfect Circle",
+          "Alabama Shakes",
+          "Dogstar",
+          "Matt Berninger",
+          "The Royston Club",
+          "Tomora",
+          "Xinobi (live)",
+          "Polo & Pan (DJ set)",
+          "Linka Moja",
+          "Midnight Generation",
+          "Gui Aly",
+          "Rumia",
+          "Maria Lui",
+          "Saya Noé",
+          "Curto e Grosso (Eduardo Madeira & Jel)",
+          "Beatriz Gosta",
+          "Vasco Pereira Coutinho",
+          "Bolinha Nunes",
+          "Rui Mirama",
+          "Inês Baptista",
+          "João Nuno Gonçalo",
+          "Na Wall convida Francisco Reis & Rafael Jesus",
+          "João Maria",
+          "Rita Maia",
+          "Hetta",
+          "Duques do Precariado",
+          "Neon Soho",
+          "Deixa Rolá",
+          "Diana Vilarinho",
+          "Geadas",
+          "Orquestra Maré do Amanhã"
+        ],
+        "added": "2026-06-20"
       },
       {
         "artist": "Foo Fighters",
-        "dates": ["2026-07-10"],
-        "support": ["Zara Larsson", "Wolf Alice", "Skunk Anansie", "The War on Drugs", "Palaye Royale", "The Warning", "Jehnny Beth", "SBTRKT (DJ set)", "Digitalism (hybrid live set)", "Fiona Kraft", "Chris Luno", "La Fleur", "Stresshead", "Call Me", "Gilmário Vemba", "Francisco Menezes", "Aqui Ninguém Nos Ouve (Diogo Faro & Isabel Viana)", "Joana Gama", "Hélder Machado", "Pedro Costa Rodrigues", "Madalena Malveiro", "Catarina Moreira", "Ellis Ferrére", "Mutu", "Picas", "Constança Quinteiro", "Inês Sousa", "Ana Sofia Varela", "Fado Máfia", "Playback – Paião por Tigerman"]
+        "dates": [
+          "2026-07-10"
+        ],
+        "support": [
+          "Zara Larsson",
+          "Wolf Alice",
+          "Skunk Anansie",
+          "The War on Drugs",
+          "Palaye Royale",
+          "The Warning",
+          "Jehnny Beth",
+          "SBTRKT (DJ set)",
+          "Digitalism (hybrid live set)",
+          "Fiona Kraft",
+          "Chris Luno",
+          "La Fleur",
+          "Stresshead",
+          "Call Me",
+          "Gilmário Vemba",
+          "Francisco Menezes",
+          "Aqui Ninguém Nos Ouve (Diogo Faro & Isabel Viana)",
+          "Joana Gama",
+          "Hélder Machado",
+          "Pedro Costa Rodrigues",
+          "Madalena Malveiro",
+          "Catarina Moreira",
+          "Ellis Ferrére",
+          "Mutu",
+          "Picas",
+          "Constança Quinteiro",
+          "Inês Sousa",
+          "Ana Sofia Varela",
+          "Fado Máfia",
+          "Playback – Paião por Tigerman"
+        ],
+        "added": "2026-06-20"
       },
       {
         "artist": "Florence + The Machine, Lorde, Pixies",
-        "dates": ["2026-07-11"],
-        "support": ["Buraka Som Sistema", "Teddy Swims", "Alessi Rose", "Don West", "Florence Road", "Noiserv", "Zimmer90", "Modeselektor (DJ set)", "Titica", "Deize Tigrona", "Arthi", "Fidju Kitxora", "Pedro da Linha (live)", "Rita Cortezão", "Hugo Sousa", "Duarte Pita Negrão", "Dagu", "João Pinto", "Joana Caldeira", "Vitor Costa", "Joana Oliveira", "Catarina Rocha", "João Miguel Costa", "Sheri Vari", "Redoma", "Razy", "Suzana Francês", "Esteves sem Metafísica", "Beatriz Felício", "Valéria", "Playback – Paião por Tigerman"]
+        "dates": [
+          "2026-07-11"
+        ],
+        "support": [
+          "Buraka Som Sistema",
+          "Teddy Swims",
+          "Alessi Rose",
+          "Don West",
+          "Florence Road",
+          "Noiserv",
+          "Zimmer90",
+          "Modeselektor (DJ set)",
+          "Titica",
+          "Deize Tigrona",
+          "Arthi",
+          "Fidju Kitxora",
+          "Pedro da Linha (live)",
+          "Rita Cortezão",
+          "Hugo Sousa",
+          "Duarte Pita Negrão",
+          "Dagu",
+          "João Pinto",
+          "Joana Caldeira",
+          "Vitor Costa",
+          "Joana Oliveira",
+          "Catarina Rocha",
+          "João Miguel Costa",
+          "Sheri Vari",
+          "Redoma",
+          "Razy",
+          "Suzana Francês",
+          "Esteves sem Metafísica",
+          "Beatriz Felício",
+          "Valéria",
+          "Playback – Paião por Tigerman"
+        ],
+        "added": "2026-06-20"
       }
-    ]
+    ],
+    "added": "2026-06-20"
   },
   {
     "type": "festival",
@@ -193,20 +479,41 @@
     "concerts": [
       {
         "artist": "Loyle Carner",
-        "dates": ["2026-07-15"],
-        "support": []
+        "dates": [
+          "2026-07-15"
+        ],
+        "support": [],
+        "added": "2026-06-20"
       },
       {
         "artist": "Jamiroquai",
-        "dates": ["2026-07-18"],
-        "support": []
+        "dates": [
+          "2026-07-18"
+        ],
+        "support": [],
+        "added": "2026-06-20"
       },
       {
         "artist": "Franz Ferdinand",
-        "dates": ["2026-07-25"],
-        "support": []
+        "dates": [
+          "2026-07-25"
+        ],
+        "support": [],
+        "added": "2026-06-20"
       }
-    ]
+    ],
+    "added": "2026-06-20"
+  },
+  {
+    "artist": "Ye",
+    "dates": [
+      "2026-08-07"
+    ],
+    "price": "€139...450",
+    "link": "https://www.bol.pt/Comprar/Bilhetes/175313/1935385/Sectores",
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-21"
   },
   {
     "type": "festival",
@@ -216,68 +523,158 @@
     "concerts": [
       {
         "artist": "Robbie Williams",
-        "dates": ["2026-08-28"],
-        "support": ["Grace Jones", "Interpol", "Judeline", "Maro", "Anna von Hausswolff", "Melody's Echo Chamber", "Angine de Poitrine", "A Sul", "Folk Bitch Trio", "Budino", "Hunee", "Lola Haro b2b Roman Flügel", "Nathan Fake (live)", "Viegas"]
+        "dates": [
+          "2026-08-28"
+        ],
+        "support": [
+          "Grace Jones",
+          "Interpol",
+          "Judeline",
+          "Maro",
+          "Anna von Hausswolff",
+          "Melody's Echo Chamber",
+          "Angine de Poitrine",
+          "A Sul",
+          "Folk Bitch Trio",
+          "Budino",
+          "Hunee",
+          "Lola Haro b2b Roman Flügel",
+          "Nathan Fake (live)",
+          "Viegas"
+        ],
+        "added": "2026-06-20"
       },
       {
         "artist": "Ms. Lauryn Hill",
-        "dates": ["2026-08-29"],
-        "support": ["Wyclef Jean", "YG Marley and Zion Marley", "Yasiin Bey x Talib Kweli - Black Star", "Ravyn Lenae", "Vince Staples", "Unknown Mortal Orchestra", "Criolo, Amaro & Dino", "Bruno Pernadas", "Femme Falafel", "Joshua Idehen", "Raquel Martins", "Tyler Ballgame", "Mind Enterprises", "Hiroko Yamamura", "Horse Meat Disco", "Mário Valente", "Suchi"]
+        "dates": [
+          "2026-08-29"
+        ],
+        "support": [
+          "Wyclef Jean",
+          "YG Marley and Zion Marley",
+          "Yasiin Bey x Talib Kweli - Black Star",
+          "Ravyn Lenae",
+          "Vince Staples",
+          "Unknown Mortal Orchestra",
+          "Criolo, Amaro & Dino",
+          "Bruno Pernadas",
+          "Femme Falafel",
+          "Joshua Idehen",
+          "Raquel Martins",
+          "Tyler Ballgame",
+          "Mind Enterprises",
+          "Hiroko Yamamura",
+          "Horse Meat Disco",
+          "Mário Valente",
+          "Suchi"
+        ],
+        "added": "2026-06-20"
       },
       {
         "artist": "Deftones",
-        "dates": ["2026-08-30"],
-        "support": ["Turnstile", "Clipse", "Freddie Gibbs + The Alchemist", "High Vis", "Peaches", "Wednesday", "Panic Shack", "Pelados", "Travo", "Residência Artística by Chelas é o Sítio", "DJ Lycox", "DJ Marfox", "Helviofox b2b Diionyg", "Nídia", "O Ghettão", "Soundpreta"]
+        "dates": [
+          "2026-08-30"
+        ],
+        "support": [
+          "Turnstile",
+          "Clipse",
+          "Freddie Gibbs + The Alchemist",
+          "High Vis",
+          "Peaches",
+          "Wednesday",
+          "Panic Shack",
+          "Pelados",
+          "Travo",
+          "Residência Artística by Chelas é o Sítio",
+          "DJ Lycox",
+          "DJ Marfox",
+          "Helviofox b2b Diionyg",
+          "Nídia",
+          "O Ghettão",
+          "Soundpreta"
+        ],
+        "added": "2026-06-20"
       }
-    ]
+    ],
+    "added": "2026-06-20"
   },
   {
     "artist": "The Weeknd",
-    "dates": ["2026-09-05", "2026-09-06"],
+    "dates": [
+      "2026-09-05",
+      "2026-09-06"
+    ],
     "price": "€71...546",
     "link": "https://blueticket.meo.pt/pt/tour/107/the-weeknd-after-hours-til-dawn-tour-5-e-6-set",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-20"
   },
   {
     "artist": "Sigur Rós",
-    "dates": ["2026-09-17"],
+    "dates": [
+      "2026-09-17"
+    ],
     "price": "€35...151",
     "link": "https://www.ticketline.pt/en/evento/sigur-ros-102956/sessao/124599_30_1789675200",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-20"
   },
   {
     "artist": "Mac DeMarco",
-    "dates": ["2026-09-20"],
+    "dates": [
+      "2026-09-20"
+    ],
     "price": "€36",
     "link": "https://feverup.com/m/476596?cp_landing_source=www.primaverasound",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-20"
   },
   {
     "artist": "Placebo",
-    "dates": ["2026-09-28", "2026-09-29"],
+    "dates": [
+      "2026-09-28",
+      "2026-09-29"
+    ],
     "price": "€26...55",
     "link": "https://www.ticketline.pt/evento/placebo-30th-anniversary-tour-102515",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-20"
   },
   {
     "artist": "Evanescence",
-    "dates": ["2026-10-04"],
+    "dates": [
+      "2026-10-04"
+    ],
     "price": "€41...216",
     "link": "https://blueticket.meo.pt/pt/Event/15722",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-20"
   },
   {
     "artist": "Jungle",
-    "dates": ["2026-10-24"],
+    "dates": [
+      "2026-10-24"
+    ],
     "price": "€48...67",
     "link": "https://www.ticketline.pt/en/evento/jungle-103353/sessao/124985_3957_1792868400",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": null,
+    "added": "2026-06-20"
   },
   {
     "artist": "Pitbull",
-    "dates": ["2026-11-02"],
+    "dates": [
+      "2026-11-02"
+    ],
     "price": "€52...400",
     "link": "https://arena.meo.pt/en/agenda/pitbull-im-back_en/15887",
-    "festival": null
+    "festival": null,
+    "lastInPortugal": 2014,
+    "added": "2026-06-20"
   }
 ]
