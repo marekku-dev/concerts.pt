@@ -70,52 +70,37 @@ fetch('concerts.json')
             });
         }
 
-        // Кнопка раскрытия всех исполнителей фестивалей
-        let expanded = false;
-        const expandBtn = document.createElement('button');
-        expandBtn.className = 'toggle-past expand-lineup';
-        expandBtn.addEventListener('click', () => {
-            expanded = !expanded;
-            render();
-        });
-
-        // Строка с кнопками над списком
-        const controlsRow = document.createElement('div');
-        controlsRow.className = 'controls-row';
+        // Какие карточки раскрыты (по индексу в data)
+        const expandedSet = new Set();
 
         function insertDivider() {
             const divider = document.createElement('div');
             divider.className = 'today-divider';
             divider.innerHTML = `
                 <div class="today-divider-past">past</div>
-                <div class="today-line"></div>
                 <div class="today-divider-upcoming">upcoming</div>
             `;
-            const prevEl = container.lastElementChild;
-            if (prevEl && prevEl.classList.contains('festival-block')) {
-                prevEl.classList.add('no-border-bottom');
-            }
             container.appendChild(divider);
             dividerInserted = true;
         }
 
         let dividerInserted = false;
 
+        function toggle(index) {
+            if (expandedSet.has(index)) {
+                expandedSet.delete(index);
+            } else {
+                expandedSet.add(index);
+            }
+            render();
+        }
+
         function render() {
         container.innerHTML = '';
         dividerInserted = false;
 
-        controlsRow.innerHTML = '';
-        // Кнопка показа прошедших концертов временно отключена
-        // if (toggleBtn) {
-        //     toggleBtn.textContent = showPast ? 'Hide past concerts' : 'Show past concerts';
-        //     controlsRow.appendChild(toggleBtn);
-        // }
-        expandBtn.textContent = expanded ? 'Hide details' : 'Show details';
-        controlsRow.appendChild(expandBtn);
-        container.appendChild(controlsRow);
-
         data.forEach((item, index) => {
+            const expanded = expandedSet.has(index);
             const lastDate = getLastDate(item);
             const isPast = lastDate < today;
 
@@ -134,9 +119,7 @@ fetch('concerts.json')
                 const festivalDiv = document.createElement('div');
                 let festClass = 'festival-block';
                 if (isPast) festClass += ' past';
-                if (index > 0 && !isPast && container.lastElementChild && container.lastElementChild.classList.contains('today-divider')) {
-                    festClass += ' no-border-top';
-                }
+                if (expanded) festClass += ' expanded';
                 festivalDiv.className = festClass;
 
                 // Генерируем список концертов фестиваля
@@ -161,24 +144,28 @@ fetch('concerts.json')
                 let festPriceHTML = '';
                 if (expanded) {
                     festPriceHTML = `
-                        <div class="price-wrapper">
+                        <a href="${item.link}" target="_blank" class="price-wrapper ticket-link">
                             <p class="price">${item.pricing}</p>
                             <img src="ticket.svg" alt="Ticket" class="ticket-icon">
-                        </div>
+                        </a>
                     `;
                 }
 
                 festivalDiv.innerHTML = `
-                    <a href="${item.link}" target="_blank" class="festival-link">
-                        <div class="festival-header">
-                            <h3>${item.name}<!-- <span class="fest-badge">FEST</span> --></h3>
-                            ${festPriceHTML}
-                        </div>
-                        <div class="festival-concerts">
-                            ${concertsHTML}
-                        </div>
-                    </a>
+                    <div class="festival-header">
+                        <h3>${item.name}<!-- <span class="fest-badge">FEST</span> --></h3>
+                        ${festPriceHTML}
+                    </div>
+                    <div class="festival-concerts">
+                        ${concertsHTML}
+                    </div>
                 `;
+
+                // Клик по фестивалю раскрывает детали; клик по цене — переход на билеты
+                festivalDiv.addEventListener('click', (e) => {
+                    if (e.target.closest('.ticket-link')) return;
+                    toggle(index);
+                });
 
                 container.appendChild(festivalDiv);
 
@@ -189,6 +176,11 @@ fetch('concerts.json')
 
                 const formattedDates = formatDates(item.dates);
 
+                let cityHTML = '';
+                if (expanded && item.city) {
+                    cityHTML = `<p class="concert-city">${item.city}</p>`;
+                }
+
                 let lastInPtHTML = '';
                 if (expanded && item.lastInPortugal) {
                     lastInPtHTML = `<p class="last-in-pt">First time since ${item.lastInPortugal}</p>`;
@@ -197,27 +189,34 @@ fetch('concerts.json')
                 let priceHTML = '';
                 if (expanded) {
                     priceHTML = `
-                        <span class="price-wrapper">
+                        <a href="${item.link}" target="_blank" class="price-wrapper ticket-link">
                             <span class="price">${item.price}</span>
                             <img src="ticket.svg" alt="Ticket" class="ticket-icon">
-                        </span>
+                        </a>
                     `;
                 }
 
+                if (expanded) div.className += ' expanded';
+
                 div.innerHTML = `
-                    <a href="${item.link}" target="_blank" class="concert-link">
-                        <div class="concert-row">
-                            <div class="concert-name">
-                                <h3>${item.artist}</h3>
-                                ${lastInPtHTML}
-                            </div>
-                            <div class="concert-meta">
-                                <p>${formattedDates}</p>
-                                ${priceHTML}
-                            </div>
+                    <div class="concert-row">
+                        <div class="concert-name">
+                            <h3>${item.artist}</h3>
+                            ${cityHTML}
+                            ${lastInPtHTML}
                         </div>
-                    </a>
+                        <div class="concert-meta">
+                            <p>${formattedDates}</p>
+                            ${priceHTML}
+                        </div>
+                    </div>
                 `;
+
+                // Клик по концерту раскрывает детали; клик по цене — переход на билеты
+                div.addEventListener('click', (e) => {
+                    if (e.target.closest('.ticket-link')) return;
+                    toggle(index);
+                });
 
                 container.appendChild(div);
             }
