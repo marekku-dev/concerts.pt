@@ -54,6 +54,11 @@ footer a {
 .festival-header h3 {
 	text-transform: uppercase;
 	letter-spacing: 1px;
+	color: #b3b3b3;
+}
+
+.festival-block.expanded .festival-header h3 {
+	color: #000;
 }
 
 .update {
@@ -120,13 +125,15 @@ footer a {
 	margin-bottom: 4px;
 }
 
-.concert-row, .festival-concert {
+.concert-row, .festival-concert-row {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 }
 
 .festival-concert {
+	display: flex;
+	flex-direction: column;
 	padding-left: 4px;
 }
 
@@ -189,6 +196,20 @@ footer a {
     font-size: 16px;
     line-height: 20px;
 }
+
+/* Детали: скрыты по умолчанию, плавно раскрываются по .expanded */
+.detail {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease, opacity 0.25s ease;
+}
+
+.expanded .detail {
+    max-height: 80px;
+    opacity: 1;
+}
+
 
 .toggle-past {
     align-self: flex-start;

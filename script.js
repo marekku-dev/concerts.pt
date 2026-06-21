@@ -87,17 +87,98 @@ fetch('concerts.json')
         let dividerInserted = false;
 
         function toggle(index) {
-            if (expandedSet.has(index)) {
-                expandedSet.delete(index);
-            } else {
+            const expanded = !expandedSet.has(index);
+            if (expanded) {
                 expandedSet.add(index);
+            } else {
+                expandedSet.delete(index);
             }
-            render();
+
+            // Обновляем только саму карточку, не пересоздавая её,
+            // чтобы transition на margin и фоне отрабатывал
+            const el = cardEls[index];
+            if (el) {
+                el.classList.toggle('expanded', expanded);
+            }
+        }
+
+        // Хранилище отрисованных карточек по индексу — чтобы тоггл менял
+        // класс на существующем элементе (иначе transition не отрабатывает)
+        const cardEls = {};
+
+        // Внутренняя разметка карточки. Детали всегда в DOM —
+        // их появление/скрытие анимируется через CSS по классу .expanded
+        function buildCardInner(item) {
+            if (item.type === 'festival') {
+                let concertsHTML = '';
+                item.concerts.forEach(concert => {
+                    const formattedDate = formatShortDate(concert.dates[0]);
+
+                    let supportHTML = '';
+                    if (concert.support && concert.support.length) {
+                        const shown = concert.support.slice(0, 4);
+                        supportHTML = `<p class="support detail">${shown.join(', ')}</p>`;
+                    }
+
+                    concertsHTML += `
+                        <div class="festival-concert">
+                            <div class="festival-concert-row">
+                                <span class="artist">${concert.artist}</span>
+                                <span class="date">${formattedDate}</span>
+                            </div>
+                            ${supportHTML}
+                        </div>
+                    `;
+                });
+
+                return `
+                    <div class="festival-header">
+                        <h3>${item.name}<!-- <span class="fest-badge">FEST</span> --></h3>
+                        <div class="detail">
+                            <a href="${item.link}" target="_blank" class="price-wrapper ticket-link">
+                                <p class="price">${item.pricing}</p>
+                                <img src="ticket.svg" alt="Ticket" class="ticket-icon">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="festival-concerts">
+                        ${concertsHTML}
+                    </div>
+                `;
+            } else {
+                const formattedDates = formatDates(item.dates);
+
+                const cityHTML = item.city
+                    ? `<p class="concert-city detail">${item.city}</p>` : '';
+
+                const lastInPtHTML = item.lastInPortugal
+                    ? `<p class="last-in-pt detail">First time since ${item.lastInPortugal}</p>` : '';
+
+                return `
+                    <div class="concert-row">
+                        <div class="concert-name">
+                            <h3>${item.artist}</h3>
+                            ${cityHTML}
+                            ${lastInPtHTML}
+                        </div>
+                        <div class="concert-meta">
+                            <p>${formattedDates}</p>
+                            <div class="detail">
+                                <a href="${item.link}" target="_blank" class="price-wrapper ticket-link">
+                                    <span class="price">${item.price}</span>
+                                    <img src="ticket.svg" alt="Ticket" class="ticket-icon">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
         }
 
         function render() {
         container.innerHTML = '';
         dividerInserted = false;
+        for (const k in cardEls) delete cardEls[k];
 
         data.forEach((item, index) => {
             const expanded = expandedSet.has(index);
@@ -114,112 +195,22 @@ fetch('concerts.json')
                 insertDivider();
             }
 
-            if (item.type === 'festival') {
-                // Блок фестиваля
-                const festivalDiv = document.createElement('div');
-                let festClass = 'festival-block';
-                if (isPast) festClass += ' past';
-                if (expanded) festClass += ' expanded';
-                festivalDiv.className = festClass;
+            const div = document.createElement('div');
+            let cls = item.type === 'festival' ? 'festival-block' : 'concert';
+            if (isPast) cls += ' past';
+            if (expanded) cls += ' expanded';
+            div.className = cls;
 
-                // Генерируем список концертов фестиваля
-                let concertsHTML = '';
-                item.concerts.forEach(concert => {
-                    const formattedDate = formatShortDate(concert.dates[0]);
+            div.innerHTML = buildCardInner(item);
 
-                    let artistText = concert.artist;
-                    if (expanded && concert.support && concert.support.length) {
-                        const shown = concert.support.slice(0, 4);
-                        artistText += `<span class="support">, ${shown.join(', ')}</span>`;
-                    }
+            // Клик по карточке раскрывает детали; клик по цене — переход на билеты
+            div.addEventListener('click', (e) => {
+                if (e.target.closest('.ticket-link')) return;
+                toggle(index);
+            });
 
-                    concertsHTML += `
-                        <div class="festival-concert">
-                            <span class="artist">${artistText}</span>
-                            <span class="date">${formattedDate}</span>
-                        </div>
-                    `;
-                });
-
-                let festPriceHTML = '';
-                if (expanded) {
-                    festPriceHTML = `
-                        <a href="${item.link}" target="_blank" class="price-wrapper ticket-link">
-                            <p class="price">${item.pricing}</p>
-                            <img src="ticket.svg" alt="Ticket" class="ticket-icon">
-                        </a>
-                    `;
-                }
-
-                festivalDiv.innerHTML = `
-                    <div class="festival-header">
-                        <h3>${item.name}<!-- <span class="fest-badge">FEST</span> --></h3>
-                        ${festPriceHTML}
-                    </div>
-                    <div class="festival-concerts">
-                        ${concertsHTML}
-                    </div>
-                `;
-
-                // Клик по фестивалю раскрывает детали; клик по цене — переход на билеты
-                festivalDiv.addEventListener('click', (e) => {
-                    if (e.target.closest('.ticket-link')) return;
-                    toggle(index);
-                });
-
-                container.appendChild(festivalDiv);
-
-            } else {
-                // Обычный концерт
-                const div = document.createElement('div');
-                div.className = isPast ? 'concert past' : 'concert';
-
-                const formattedDates = formatDates(item.dates);
-
-                let cityHTML = '';
-                if (expanded && item.city) {
-                    cityHTML = `<p class="concert-city">${item.city}</p>`;
-                }
-
-                let lastInPtHTML = '';
-                if (expanded && item.lastInPortugal) {
-                    lastInPtHTML = `<p class="last-in-pt">First time since ${item.lastInPortugal}</p>`;
-                }
-
-                let priceHTML = '';
-                if (expanded) {
-                    priceHTML = `
-                        <a href="${item.link}" target="_blank" class="price-wrapper ticket-link">
-                            <span class="price">${item.price}</span>
-                            <img src="ticket.svg" alt="Ticket" class="ticket-icon">
-                        </a>
-                    `;
-                }
-
-                if (expanded) div.className += ' expanded';
-
-                div.innerHTML = `
-                    <div class="concert-row">
-                        <div class="concert-name">
-                            <h3>${item.artist}</h3>
-                            ${cityHTML}
-                            ${lastInPtHTML}
-                        </div>
-                        <div class="concert-meta">
-                            <p>${formattedDates}</p>
-                            ${priceHTML}
-                        </div>
-                    </div>
-                `;
-
-                // Клик по концерту раскрывает детали; клик по цене — переход на билеты
-                div.addEventListener('click', (e) => {
-                    if (e.target.closest('.ticket-link')) return;
-                    toggle(index);
-                });
-
-                container.appendChild(div);
-            }
+            cardEls[index] = div;
+            container.appendChild(div);
         });
         }
 
