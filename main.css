@@ -191,10 +191,38 @@ footer a {
     color: #b3b3b3;
 }
 
-.last-in-pt, .concert-city {
+.concert-city {
     color: #b3b3b3;
     font-size: 16px;
     line-height: 20px;
+}
+
+.last-in-pt {
+    color: #fff;
+    background: #ccc;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-left: 8px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+/* Фестивальные строки, скрытые до раскрытия (только featured видны свёрнутыми) */
+.festival-concert-collapsible {
+    max-height: 0;
+    opacity: 0;
+    margin-top: -4px;
+    overflow: hidden;
+    transition: max-height 0.25s ease, opacity 0.25s ease, margin-top 0.25s ease;
+}
+
+.expanded .festival-concert-collapsible {
+    max-height: 80px;
+    opacity: 1;
+    margin-top: 0;
 }
 
 /* Детали: скрыты по умолчанию, плавно раскрываются по .expanded */

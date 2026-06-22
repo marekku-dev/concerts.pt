@@ -32,6 +32,15 @@ function formatDates(dates) {
     }
 }
 
+// Лейбл «since YYYY» показываем, только если последний концерт
+// был более 10 лет назад
+function lastInPtLabelHTML(year) {
+    if (!year) return '';
+    const currentYear = new Date().getFullYear();
+    if (currentYear - year <= 10) return '';
+    return `<span class="last-in-pt">since ${year}</span>`;
+}
+
 // Функция для коротких дат в фестивалях
 function formatShortDate(date) {
     return new Date(date).toLocaleDateString('en-US', {
@@ -110,6 +119,10 @@ fetch('concerts.json')
         // их появление/скрытие анимируется через CSS по классу .expanded
         function buildCardInner(item) {
             if (item.type === 'festival') {
+                // Если у фестиваля есть отмеченные (featured) артисты,
+                // в свёрнутом виде показываем только их, остальных скрываем
+                const hasFeatured = item.concerts.some(c => c.featured);
+
                 let concertsHTML = '';
                 item.concerts.forEach(concert => {
                     const formattedDate = formatShortDate(concert.dates[0]);
@@ -120,10 +133,16 @@ fetch('concerts.json')
                         supportHTML = `<p class="support detail">${shown.join(', ')}</p>`;
                     }
 
+                    const lastInPtLabel = lastInPtLabelHTML(concert.lastInPortugal);
+
+                    // Скрываем строку только когда есть featured и этот артист не featured
+                    const hiddenCls = (hasFeatured && !concert.featured)
+                        ? ' festival-concert-collapsible' : '';
+
                     concertsHTML += `
-                        <div class="festival-concert">
+                        <div class="festival-concert${hiddenCls}">
                             <div class="festival-concert-row">
-                                <span class="artist">${concert.artist}</span>
+                                <span class="artist">${concert.artist}${lastInPtLabel}</span>
                                 <span class="date">${formattedDate}</span>
                             </div>
                             ${supportHTML}
@@ -151,15 +170,13 @@ fetch('concerts.json')
                 const cityHTML = item.city
                     ? `<p class="concert-city detail">${item.city}</p>` : '';
 
-                const lastInPtHTML = item.lastInPortugal
-                    ? `<p class="last-in-pt detail">First time since ${item.lastInPortugal}</p>` : '';
+                const lastInPtLabel = lastInPtLabelHTML(item.lastInPortugal);
 
                 return `
                     <div class="concert-row">
                         <div class="concert-name">
-                            <h3>${item.artist}</h3>
+                            <h3>${item.artist}${lastInPtLabel}</h3>
                             ${cityHTML}
-                            ${lastInPtHTML}
                         </div>
                         <div class="concert-meta">
                             <p>${formattedDates}</p>
