@@ -92,6 +92,12 @@ footer a {
 
 .festival-concerts {
 	gap: 4px;
+	transition: margin-top 0.2s ease;
+}
+
+/* В раскрытом виде отделяем список артистов от шапки фестиваля */
+.festival-block.expanded .festival-concerts {
+	margin-top: 12px;
 }
 
 #concerts a {
