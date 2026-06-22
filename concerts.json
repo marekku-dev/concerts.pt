@@ -130,7 +130,7 @@
     "name": "PRIMAVERA PORTO",
     "pricing": "1 day – €75, 4 days – €180",
     "link": "https://primaverasound.com",
-    "city": null,
+    "city": "Porto",
     "concerts": [
       {
         "artist": "the xx",
@@ -176,7 +176,7 @@
     "name": "ROCK IN RIO",
     "pricing": "1 day – €89, 2 days – €157",
     "link": "https://rockinriolisboa.pt/",
-    "city": null,
+    "city": "Lisbon",
     "concerts": [
       {
         "artist": "Katy Perry",
@@ -282,8 +282,9 @@
     "type": "festival",
     "name": "MIMO",
     "pricing": "Free",
-    "link": "https://mimofestival.com/2026/en/portfolio-item/tricky/",
-    "city": null,
+    "link": "https://mimofestival.com/2026/en/",
+    "city": "Guimarães",
+    "mapLink": "https://www.google.com/maps/place/Palace+Duques+de+Bragan%C3%A7a/@41.4486911,-8.3017718,14.86z/data=!4m14!1m7!3m6!1s0xd24efec66173c23:0xfce99770ca56ac39!2sGuimar%C3%A3es+Castle!8m2!3d41.4478935!4d-8.2903191!16zL20vMDY4Zjh3!3m5!1s0xd24e598bfae9dab:0x5cc6b66a8b587c6c!8m2!3d41.4465409!4d-8.2911855!16zL20vMDI3c3Zk?entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D",
     "concerts": [
       {
         "artist": "Oumou Sangaré",
@@ -374,7 +375,7 @@
     "name": "NOS ALIVE",
     "pricing": "1 day – €84, 2 days – €168, 3 days – €199",
     "link": "https://nosalive.com/",
-    "city": null,
+    "city": "Lisbon",
     "concerts": [
       {
         "artist": "Twenty One Pilots",
@@ -509,7 +510,7 @@
     "name": "Ageas Cooljazz",
     "pricing": "1 day – €35...75",
     "link": "https://www.ageascooljazz.pt/index.html",
-    "city": null,
+    "city": "Cascais",
     "concerts": [
       {
         "artist": "Gilberto Gil",
@@ -606,7 +607,7 @@
     "name": "VILAR DE MOUROS",
     "pricing": "1 day – €55",
     "link": "https://cavilardemouros.bol.pt/",
-    "city": null,
+    "city": "Vilar de Mouros",
     "concerts": [
       {
         "artist": "Yungblud",
@@ -670,7 +671,7 @@
     "name": "MEO KALORAMA",
     "pricing": "1 day – €65, 3 days – €160",
     "link": "https://meokalorama.pt/",
-    "city": null,
+    "city": "Lisbon",
     "concerts": [
       {
         "artist": "Robbie Williams",

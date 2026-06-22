@@ -49,6 +49,65 @@ function formatShortDate(date) {
     });
 }
 
+// Город + (опционально) иконка-стрелка с ссылкой на Google Maps.
+// extraCls — доп. классы на обёртку (напр. 'detail', чтобы скрывать до раскрытия).
+// Если mapLink не задан — просто текст, без иконки и без перехода.
+function cityHTML(city, mapLink, extraCls = '') {
+    if (!city) return '';
+    const cls = `concert-city${extraCls ? ' ' + extraCls : ''}`;
+    if (mapLink) {
+        return `<a href="${mapLink}" target="_blank" rel="noopener" class="${cls} city-link map-link">${city}<img src="compass.svg" alt="Map" class="map-icon"></a>`;
+    }
+    return `<p class="${cls}">${city}</p>`;
+}
+
+// Диапазон дат фестиваля — от первого до последнего концерта.
+// Используем ту же логику, что и для обычных концертов (formatDates).
+function festivalDateRange(festival) {
+    const allDates = festival.concerts
+        .flatMap(c => c.dates)
+        .slice()
+        .sort();
+    if (!allDates.length) return '';
+
+    const first = new Date(allDates[0]);
+    const last = new Date(allDates[allDates.length - 1]);
+
+    // Один день
+    if (allDates[0] === allDates[allDates.length - 1]) {
+        return formatDates([allDates[0]]);
+    }
+
+    const firstDay = first.getDate();
+    const lastDay = last.getDate();
+
+    // Один месяц: «Jun 11–14»
+    if (first.getMonth() === last.getMonth()) {
+        const month = first.toLocaleDateString('en-US', { month: 'short' });
+        return `${month} ${firstDay}–${lastDay}`;
+    }
+
+    // Разные месяцы: «Jul 31 – Aug 2»
+    const firstMonth = first.toLocaleDateString('en-US', { month: 'short' });
+    const lastMonth = last.toLocaleDateString('en-US', { month: 'short' });
+    return `${firstMonth} ${firstDay} – ${lastMonth} ${lastDay}`;
+}
+
+// Цена фестиваля: показываем стоимость билета на один день со знаком «+»
+// (напр. «1 day – €75, 4 days – €180» → €75+; «1 day – €35...75» → €35+).
+// Билет на один день — самый дешёвый вариант, поэтому берём минимальное
+// число. Если чисел нет (напр. «Free») — возвращаем строку как есть.
+function festivalPriceRange(pricing) {
+    if (!pricing) return '';
+    // Берём только числа из ценовых токенов вида «€35» или «€35...75»,
+    // чтобы не зацепить «1 day», «4 days» и т.п.
+    const nums = (pricing.match(/€\s*\d+(?:\s*\.\.\.\s*\d+)?/g) || [])
+        .flatMap(tok => (tok.match(/\d+/g) || []).map(Number));
+    if (!nums.length) return pricing; // «Free» и подобное
+    const min = Math.min(...nums);
+    return `€${min}+`;
+}
+
 fetch('concerts.json')
     .then(response => response.json())
     .then(data => {
@@ -150,14 +209,25 @@ fetch('concerts.json')
                     `;
                 });
 
+                const festivalDates = festivalDateRange(item);
+                const festivalPrice = festivalPriceRange(item.pricing);
+
+                const festCityHTML = cityHTML(item.city, item.mapLink, 'detail');
+
                 return `
-                    <div class="festival-header">
-                        <h3>${item.name}<!-- <span class="fest-badge">FEST</span> --></h3>
-                        <div class="detail">
-                            <a href="${item.link}" target="_blank" class="price-wrapper ticket-link">
-                                <p class="price">${item.pricing}</p>
-                                <img src="ticket.svg" alt="Ticket" class="ticket-icon">
-                            </a>
+                    <div class="festival-header concert-row">
+                        <div class="concert-name">
+                            <h3>${item.name}</h3>
+                            ${festCityHTML}
+                        </div>
+                        <div class="concert-meta">
+                            <p>${festivalDates}</p>
+                            <div class="detail">
+                                <a href="${item.link}" target="_blank" class="price-wrapper ticket-link">
+                                    <span class="price">${festivalPrice}</span>
+                                    <img src="ticket.svg" alt="Ticket" class="ticket-icon">
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="festival-concerts">
@@ -167,8 +237,7 @@ fetch('concerts.json')
             } else {
                 const formattedDates = formatDates(item.dates);
 
-                const cityHTML = item.city
-                    ? `<p class="concert-city detail">${item.city}</p>` : '';
+                const concertCityHTML = cityHTML(item.city, item.mapLink, 'detail');
 
                 const lastInPtLabel = lastInPtLabelHTML(item.lastInPortugal);
 
@@ -176,7 +245,7 @@ fetch('concerts.json')
                     <div class="concert-row">
                         <div class="concert-name">
                             <h3>${item.artist}${lastInPtLabel}</h3>
-                            ${cityHTML}
+                            ${concertCityHTML}
                         </div>
                         <div class="concert-meta">
                             <p>${formattedDates}</p>
@@ -223,6 +292,7 @@ fetch('concerts.json')
             // Клик по карточке раскрывает детали; клик по цене — переход на билеты
             div.addEventListener('click', (e) => {
                 if (e.target.closest('.ticket-link')) return;
+                if (e.target.closest('.map-link')) return;
                 toggle(index);
             });
 

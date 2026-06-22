@@ -57,7 +57,13 @@ footer a {
 	color: #b3b3b3;
 }
 
-.festival-block.expanded .festival-header h3 {
+.festival-header .concert-meta p {
+	color: #b3b3b3;
+	transition: color 0.2s ease;
+}
+
+.festival-block.expanded .festival-header h3,
+.festival-block.expanded .festival-header .concert-meta p {
 	color: #000;
 }
 
@@ -195,6 +201,42 @@ footer a {
     color: #b3b3b3;
     font-size: 16px;
     line-height: 20px;
+}
+
+/* Город как ссылка на карту: текст + иконка-стрелка.
+   В свёрнутом виде (.detail без .expanded) строка полностью скрыта —
+   display:none, чтобы не оставлять пустое место. Flex включается только
+   когда карточка раскрыта. */
+a.city-link {
+    display: none;
+    align-items: center;
+    gap: 2px;
+    text-decoration: none;
+    color: #b3b3b3;
+    width: fit-content;
+    transition: color 0.2s ease;
+}
+
+.expanded a.city-link {
+    display: inline-flex;
+}
+
+.map-icon {
+    height: 16px;
+    flex-shrink: 0;
+    transition: filter 0.2s ease;
+}
+
+.city-link:hover {
+    color: #000;
+}
+
+.city-link:hover .map-icon {
+    filter: brightness(0);
+}
+
+.past .map-icon {
+    filter: opacity(0.35);
 }
 
 .last-in-pt {
