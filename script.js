@@ -141,6 +141,13 @@ fetch('concerts.json')
         // Какие карточки раскрыты (по индексу в data)
         const expandedSet = new Set();
 
+        // Первую показываемую карточку (первый предстоящий концерт/фестиваль)
+        // открываем сразу
+        const firstUpcomingIndex = data.findIndex(item => getLastDate(item) >= today);
+        if (firstUpcomingIndex !== -1) {
+            expandedSet.add(firstUpcomingIndex);
+        }
+
         function insertDivider() {
             const divider = document.createElement('div');
             divider.className = 'today-divider';
