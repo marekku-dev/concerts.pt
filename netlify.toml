@@ -12,3 +12,13 @@
   from = "/api/subscribe"
   to = "/.netlify/functions/subscribe"
   status = 200
+
+# Месячный дайджест: 1-го числа каждого месяца в 08:00 UTC функция создаёт
+# черновик кампании в Brevo. Cron в формате UTC. "0 8 1 * *" = 1-е число, 08:00.
+[functions."monthly-digest"]
+  schedule = "0 8 1 * *"
+
+# Функциям нужен доступ к concerts.json и общему модулю digest-core.js —
+# по умолчанию в бандл попадает только сам файл функции, поэтому включаем явно.
+[functions]
+  included_files = ["concerts.json", "digest-core.js"]
