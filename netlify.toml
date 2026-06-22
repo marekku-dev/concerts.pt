@@ -1,0 +1,14 @@
+# Конфигурация Netlify для concerts.pt
+
+[build]
+  # Сайт — это статика в корне репозитория.
+  publish = "."
+  # Папка с serverless-функциями (subscribe.js и т.п.).
+  functions = "netlify/functions"
+
+# Необязательный короткий путь: /api/subscribe → функция subscribe.
+# Удобнее, чем длинный /.netlify/functions/subscribe. Можно использовать любой.
+[[redirects]]
+  from = "/api/subscribe"
+  to = "/.netlify/functions/subscribe"
+  status = 200

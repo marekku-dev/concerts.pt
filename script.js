@@ -235,12 +235,16 @@ fetch('concerts.json')
     })
     .catch(error => console.error('Ошибка загрузки данных:', error));
 
-// Подписка на рассылку
-// TODO: подставь сюда свой endpoint от Brevo/Zoho, когда будет готов.
-// Пока null — форма просто имитирует успешную отправку.
-const SUBSCRIBE_ENDPOINT = null;
+// Подписка на рассылку.
+// Локально (localhost) форма стучится в server.js на порту 3000.
+// На проде (Netlify) — в serverless-функцию. И там, и там API-ключ Brevo
+// живёт только на сервере, в браузер не попадает.
+const IS_LOCAL = ['localhost', '127.0.0.1'].includes(location.hostname);
+const SUBSCRIBE_ENDPOINT = IS_LOCAL
+    ? 'http://localhost:3000/subscribe'
+    : '/.netlify/functions/subscribe';
 
-(function () {
+function initSubscribeForm() {
     const form = document.querySelector('.subscribe-form');
     if (!form) return;
 
@@ -288,4 +292,12 @@ const SUBSCRIBE_ENDPOINT = null;
             button.disabled = false;
         }
     });
-})();
+}
+
+// Навешиваем обработчик после готовности DOM — на случай, если скрипт
+// загружен в <head> без defer или форма появляется позже.
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSubscribeForm);
+} else {
+    initSubscribeForm();
+}
