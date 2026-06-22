@@ -208,6 +208,8 @@ footer a {
     padding: 2px 4px;
     border-radius: 4px;
     white-space: nowrap;
+    transform: translateY(-1px);
+    display: inline-block;
 }
 
 /* Фестивальные строки, скрытые до раскрытия (только featured видны свёрнутыми) */
