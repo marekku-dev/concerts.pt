@@ -367,6 +367,10 @@ a.city-link {
     hyphens: auto;
 }
 
+.subscribe-copy p:not(:last-child) {
+    margin-bottom: 5px;
+}
+
 .subscribe-form {
     display: flex;
     flex-direction: row;
@@ -444,4 +448,8 @@ a.city-link {
     color: #000;
     text-decoration: underline dotted;
     text-underline-offset: 3px;
+}
+
+.subscribe-copy a {
+    color: inherit;
 }
