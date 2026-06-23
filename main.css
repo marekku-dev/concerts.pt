@@ -45,7 +45,7 @@ footer a {
 .intro {
 	color: #b3b3b3;
 	margin: 5px 0;
-	text-align: justify;
+	text-align: left;
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
@@ -361,7 +361,7 @@ a.city-link {
 
 .subscribe-copy p {
     color: #b3b3b3;
-    text-align: justify;
+    text-align: left;
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
