@@ -124,12 +124,27 @@ footer a {
 	display: flex;
 	flex-direction: column;
 	cursor: pointer;
-	transition: background-color 0.2s ease, margin 0.2s ease;
+	transition: background-color 0.2s ease, margin 0.2s ease, transform 0.2s ease;
+	/* Убираем синюю подсветку при тапе на мобильных */
+	-webkit-tap-highlight-color: transparent;
 }
 
-.concert:hover, .festival-block:hover,
+/* Раскрытая карточка всегда подсвечена */
 .concert.expanded, .festival-block.expanded {
 	background-color: #f7f7f7;
+}
+
+/* Подсветку и лёгкое увеличение по ховеру включаем только на устройствах
+   с настоящим указателем — иначе на тач-экранах :hover «залипает» после тапа.
+   Увеличиваем только свёрнутые карточки — это подсказывает, что они раскроются. */
+@media (hover: hover) {
+	.concert:hover, .festival-block:hover {
+		background-color: #f7f7f7;
+	}
+
+	.concert:not(.expanded):hover, .festival-block:not(.expanded):hover {
+		transform: scale(1.015);
+	}
 }
 
 .concert.expanded, .festival-block.expanded {
@@ -183,12 +198,14 @@ footer a {
     cursor: pointer;
 }
 
-.ticket-link:hover .price {
-    color: black;
-}
+@media (hover: hover) {
+    .ticket-link:hover .price {
+        color: black;
+    }
 
-.ticket-link:hover .ticket-icon {
-    filter: brightness(0);
+    .ticket-link:hover .ticket-icon {
+        filter: brightness(0);
+    }
 }
 
 .past, .past a, .past .price {
@@ -233,12 +250,14 @@ a.city-link {
     transition: filter 0.2s ease;
 }
 
-.city-link:hover {
-    color: #000;
-}
+@media (hover: hover) {
+    .city-link:hover {
+        color: #000;
+    }
 
-.city-link:hover .map-icon {
-    filter: brightness(0);
+    .city-link:hover .map-icon {
+        filter: brightness(0);
+    }
 }
 
 .past .map-icon {
@@ -303,8 +322,10 @@ a.city-link {
     text-underline-offset: 3px;
 }
 
-.toggle-past:hover {
-    color: #000;
+@media (hover: hover) {
+    .toggle-past:hover {
+        color: #000;
+    }
 }
 
 .today-divider {
@@ -356,14 +377,15 @@ a.city-link {
 .subscribe-input {
     flex: 1;
     min-width: 0;
-    background: none;
-    border: none;
-    border-bottom: solid 1px #000;
-    padding: 4px 0;
+    background: #f7f7f7;
+    border: solid 1px transparent;
+    border-radius: 8px;
+    padding: 8px 12px;
     font-family: inherit;
     font-size: 16px;
     line-height: 20px;
     color: #000;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .subscribe-input::placeholder {
@@ -372,27 +394,34 @@ a.city-link {
 
 .subscribe-input:focus {
     outline: none;
+    background: #fff;
+    border-color: #000;
 }
 
 .subscribe-button {
     flex-shrink: 0;
-    background: none;
+    background: #000;
     border: solid 1px #000;
+    border-radius: 8px;
     cursor: pointer;
     font-family: inherit;
     font-size: 16px;
     line-height: 20px;
-    color: #000;
-    padding: 4px 12px;
+    color: #fff;
+    padding: 8px 16px;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-.subscribe-button:hover:not(:disabled) {
-    background-color: #000;
-    color: #fff;
+@media (hover: hover) {
+    .subscribe-button:hover:not(:disabled) {
+        background-color: #333;
+        border-color: #333;
+    }
 }
 
 .subscribe-button:disabled {
     cursor: default;
+    background: none;
     color: #b3b3b3;
     border-color: #b3b3b3;
 }
