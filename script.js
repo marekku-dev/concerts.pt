@@ -108,12 +108,27 @@ function festivalPriceRange(pricing) {
     return `€${min}+`;
 }
 
-fetch('concerts.json')
-    .then(response => response.json())
-    .then(data => {
-        const container = document.getElementById('concerts');
+// Рендер одного списка концертов в указанный контейнер.
+// data — массив концертов/фестивалей; container — DOM-элемент;
+// ptDateMap (опционально) — Map «нормализованное имя артиста → дата его
+// выступления в PT» (строкой, напр. «Mar 6»). Если артист уже играет в
+// Португалии, в ES-списке рисуем рядом лейбл «Mar 6 in PT». Нужно только
+// для ES-списка.
+function renderConcertList(data, container, ptDateMap, onLayoutChange) {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
+
+        // ===== SPAIN FEATURE (можно удалить вместе с фичей) =====
+        // Нормализация имени артиста для сравнения PT/ES
+        const norm = (s) => (s || '').trim().toLowerCase();
+        const ptDateFor = (artist) => (ptDateMap ? ptDateMap.get(norm(artist)) : undefined);
+        // Лейбл «<date> in PT» в стиле .last-in-pt — для дублей в ES-списке
+        function inPtLabelHTML(artist) {
+            const d = ptDateFor(artist);
+            if (!d) return '';
+            return `<span class="last-in-pt in-pt-label">${d} in PT</span>`;
+        }
+        // ===== /SPAIN FEATURE =====
 
         function getLastDate(item) {
             if (item.type === 'festival') {
@@ -175,6 +190,15 @@ fetch('concerts.json')
             if (el) {
                 el.classList.toggle('expanded', expanded);
             }
+
+            // ===== SPAIN FEATURE: высота карточки меняется (transition ~0.25s),
+            // сообщаем наружу, чтобы пересчитать высоту вьюпорта =====
+            if (typeof onLayoutChange === 'function') {
+                onLayoutChange();
+                // повторно после завершения CSS-анимации раскрытия
+                setTimeout(onLayoutChange, 280);
+            }
+            // ===== /SPAIN FEATURE =====
         }
 
         // Хранилище отрисованных карточек по индексу — чтобы тоггл менял
@@ -205,10 +229,14 @@ fetch('concerts.json')
                     const hiddenCls = (hasFeatured && !concert.featured)
                         ? ' festival-concert-collapsible' : '';
 
+                    // ===== SPAIN FEATURE: лейбл «<date> in PT», если артист уже есть в PT =====
+                    const inPtLabel = inPtLabelHTML(concert.artist);
+                    // ===== /SPAIN FEATURE =====
+
                     concertsHTML += `
                         <div class="festival-concert${hiddenCls}">
                             <div class="festival-concert-row">
-                                <span class="artist">${concert.artist}${lastInPtLabel}</span>
+                                <span class="artist">${concert.artist}${lastInPtLabel}${inPtLabel}</span>
                                 <span class="date">${formattedDate}</span>
                             </div>
                             ${supportHTML}
@@ -248,10 +276,14 @@ fetch('concerts.json')
 
                 const lastInPtLabel = lastInPtLabelHTML(item.lastInPortugal);
 
+                // ===== SPAIN FEATURE: лейбл «<date> in PT» для дубля в ES =====
+                const inPtLabel = inPtLabelHTML(item.artist);
+                // ===== /SPAIN FEATURE =====
+
                 return `
                     <div class="concert-row">
                         <div class="concert-name">
-                            <h3>${item.artist}${lastInPtLabel}</h3>
+                            <h3>${item.artist}${lastInPtLabel}${inPtLabel}</h3>
                             ${concertCityHTML}
                         </div>
                         <div class="concert-meta">
@@ -309,7 +341,161 @@ fetch('concerts.json')
         }
 
         render();
+}
+
+// ============================================================
+// SPAIN FEATURE — переключатель PT/ES со слайдом.
+// СЕЙЧАС ОТКЛЮЧЕНА (закомментирована) — фича на будущее, допиливается.
+// Чтобы включить обратно: убрать обёртку /* ... */ вокруг этого блока
+// (bootstrap'а) и закомментировать «ОРИГИНАЛЬНЫЙ БУТСТРАП» ниже. Также
+// раскомментировать CSS-блок «SPAIN FEATURE» в main.css. Сам рендер с
+// поддержкой ES-списка (функция renderConcertList с ptDateMap) остаётся
+// в коде выше — он обратно совместим и не мешает одиночному списку.
+// Данные лежат в concerts-es.json.
+// ============================================================
+/* SPAIN FEATURE bootstrap — отключено, см. комментарий выше
+Promise.all([
+    fetch('concerts.json').then(r => r.json()),
+    fetch('concerts-es.json').then(r => r.json())
+])
+    .then(([ptData, esData]) => {
+        const root = document.getElementById('concerts');
+
+        // Map «имя PT-артиста → дата его выступления в PT» (включая
+        // участников фестивалей). Дата форматируется как в списке («Mar 6»).
+        // Нужна и для подсветки серым, и для лейбла «Mar 6 in PT» в ES.
+        const norm = (s) => (s || '').trim().toLowerCase();
+        const ptDateMap = new Map();
+        const addPt = (artist, dates) => {
+            if (!artist || !dates || !dates.length) return;
+            const key = norm(artist);
+            // Если артист встречается несколько раз — оставляем самую раннюю дату
+            if (!ptDateMap.has(key)) ptDateMap.set(key, formatDates([dates[0]]));
+        };
+        ptData.forEach(item => {
+            if (item.type === 'festival') {
+                item.concerts.forEach(c => addPt(c.artist, c.dates));
+            } else {
+                addPt(item.artist, item.dates);
+            }
+        });
+
+        // Каркас: сегментный переключатель + два слайда (PT и ES) в «окне».
+        // Скользящий индикатор (.country-toggle-thumb) ездит под активной
+        // кнопкой; ширина/сдвиг задаются в JS по числу/индексу кнопок.
+        root.innerHTML = `
+            <div class="country-toggle" role="tablist">
+                <span class="country-toggle-thumb" aria-hidden="true"></span>
+                <button class="country-toggle-btn active" data-country="pt" role="tab">PT</button>
+                <button class="country-toggle-btn" data-country="es" role="tab">ES</button>
+            </div>
+            <div class="country-viewport">
+                <div class="country-track">
+                    <div class="country-pane" id="concerts-pt"></div>
+                    <div class="country-pane" id="concerts-es"></div>
+                </div>
+            </div>
+        `;
+
+        const viewport = root.querySelector('.country-viewport');
+        const track = root.querySelector('.country-track');
+        const panePt = document.getElementById('concerts-pt');
+        const paneEs = document.getElementById('concerts-es');
+        const toggle = root.querySelector('.country-toggle');
+        const thumb = root.querySelector('.country-toggle-thumb');
+        const buttons = root.querySelectorAll('.country-toggle-btn');
+
+        let activeCountry = 'pt';
+
+        // Скользящий индикатор: ставим его под активную кнопку по её
+        // фактическим offsetLeft/offsetWidth (относительно .country-toggle).
+        function syncThumb() {
+            const active = [...buttons].find(b => b.dataset.country === activeCountry);
+            if (!active || !thumb) return;
+            thumb.style.width = active.offsetWidth + 'px';
+            thumb.style.transform = `translateX(${active.offsetLeft}px)`;
+        }
+
+        // Зазор между странами (должен совпадать с gap у .country-track в CSS)
+        const GAP = 20;
+
+        // Высота вьюпорта = высота активной панели. Так список не
+        // наследует высоту соседней страны, и хвост более длинной
+        // (неактивной) панели не торчит снизу.
+        function syncHeight() {
+            const activePane = activeCountry === 'es' ? paneEs : panePt;
+            viewport.style.height = activePane.offsetHeight + 'px';
+        }
+
+        // Сдвиг трека под активную страну. PT — позиция 0; ES — сдвиг
+        // влево на фактическую ширину одной панели + зазор. Считаем в
+        // пикселях по реальной ширине панели, чтобы исключить любую
+        // неоднозначность с процентами в translateX.
+        function syncSlide() {
+            const offset = activeCountry === 'es' ? -(panePt.offsetWidth + GAP) : 0;
+            track.style.transform = `translateX(${offset}px)`;
+        }
+
+        // Колбэк раскрытия карточки пересчитывает высоту только если
+        // меняли активную в данный момент страну.
+        const onPtLayout = () => { if (activeCountry === 'pt') syncHeight(); };
+        const onEsLayout = () => { if (activeCountry === 'es') syncHeight(); };
+
+        renderConcertList(ptData, panePt, undefined, onPtLayout);
+        renderConcertList(esData, paneEs, ptDateMap, onEsLayout);
+
+        // aria-hidden на неактивной панели — и для доступности,
+        // и чтобы отрубить её клики (см. CSS pointer-events).
+        function syncAria() {
+            panePt.setAttribute('aria-hidden', activeCountry === 'pt' ? 'false' : 'true');
+            paneEs.setAttribute('aria-hidden', activeCountry === 'es' ? 'false' : 'true');
+        }
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                activeCountry = btn.dataset.country;
+                buttons.forEach(b => b.classList.toggle('active', b === btn));
+                syncSlide();
+                syncAria();
+                syncHeight();
+                syncThumb();
+            });
+        });
+
+        // Стартовая высота, aria, сдвиг и индикатор. Картинки (иконки
+        // билета/карты) могут догрузиться позже и изменить высоту —
+        // пересчитываем по load.
+        syncAria();
+        syncHeight();
+        syncSlide();
+        syncThumb();
+        // При ресайзе меняется ширина панели/кнопок — пересчитываем сдвиг,
+        // высоту и индикатор. disable-transition на время ресайза, чтобы
+        // трек и индикатор не «ехали» рывками.
+        const onResize = () => {
+            const prevTrack = track.style.transition;
+            const prevThumb = thumb ? thumb.style.transition : '';
+            track.style.transition = 'none';
+            if (thumb) thumb.style.transition = 'none';
+            syncSlide();
+            syncHeight();
+            syncThumb();
+            requestAnimationFrame(() => {
+                track.style.transition = prevTrack;
+                if (thumb) thumb.style.transition = prevThumb;
+            });
+        };
+        window.addEventListener('load', () => { syncHeight(); syncSlide(); syncThumb(); });
+        window.addEventListener('resize', onResize);
     })
+    .catch(error => console.error('Ошибка загрузки данных:', error));
+*/
+// ===== /SPAIN FEATURE — bootstrap (отключено) =====
+
+// ОРИГИНАЛЬНЫЙ БУТСТРАП (активен, пока фича Испании отключена):
+fetch('concerts.json')
+    .then(response => response.json())
+    .then(data => renderConcertList(data, document.getElementById('concerts')))
     .catch(error => console.error('Ошибка загрузки данных:', error));
 
 // Подписка на рассылку.

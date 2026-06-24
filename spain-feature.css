@@ -1,0 +1,111 @@
+/* ============================================================
+   SPAIN FEATURE — стили (ОТКЛЮЧЕНО, фича на будущее).
+
+   Этот файл НЕ подключён в index.html. Когда будем допиливать
+   переключатель PT/ES, вернуть стили так:
+     1) либо <link rel="stylesheet" href="spain-feature.css"> в index.html,
+        после main.css;
+     2) либо перенести содержимое обратно в конец main.css.
+   Плюс в script.js включить «SPAIN FEATURE bootstrap» (убрать обёртку
+   /* ... *​/) и закомментировать «ОРИГИНАЛЬНЫЙ БУТСТРАП».
+   Данные: concerts-es.json.
+   ============================================================ */
+
+/* Сегментный переключатель Portugal / Spain.
+   Пилюля на сером фоне (#f7f7f7, как у карточек), внутри — скользящий
+   белый индикатор (.thumb), который JS ставит под активную кнопку. */
+.country-toggle {
+    position: relative;
+    display: inline-flex;
+    align-self: flex-start;
+    background: #f7f7f7;
+    border-radius: 8px;
+    padding: 3px;
+    margin-bottom: 10px;
+    /* На случай отключённого JS: показываем активную кнопку фоном */
+    isolation: isolate;
+}
+
+/* Белый «ползунок» под активной кнопкой. Позицию/ширину задаёт JS. */
+.country-toggle-thumb {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    bottom: 3px;
+    width: 0; /* стартовое; реальное проставит JS */
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, width 0.25s ease;
+    z-index: -1;
+}
+
+.country-toggle-btn {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #b3b3b3;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 5px 16px;
+    border-radius: 6px;
+    transition: color 0.2s ease;
+}
+
+.country-toggle-btn.active {
+    color: #000;
+}
+
+@media (hover: hover) {
+    .country-toggle-btn:not(.active):hover {
+        color: #000;
+    }
+}
+
+/* «Окно», в котором ездят два списка.
+   - overflow-x:hidden прячет соседнюю страну за горизонтальным краем;
+   - overflow-y:hidden обрезает по высоте более длинную (неактивную)
+     панель, чтобы её хвост не торчал снизу;
+   - высоту задаёт JS по активной панели (плавно через transition);
+   - горизонтальный padding 4px компенсирует отрицательные margin'ы
+     карточек (margin:0 -4px), иначе overflow обрезает скругления. */
+.country-viewport {
+    overflow: hidden;
+    padding: 0 4px;
+    height: 0; /* стартовое; реальное значение проставит JS */
+    transition: height 0.3s ease;
+}
+
+/* Трек: ширину НЕ фиксируем — её задаёт сумма двух панелей + gap.
+   align-items:flex-start — панели НЕ растягиваются друг под друга по
+   высоте, у каждой своя естественная высота.
+   gap:20px — зазор между странами, чтобы при слайде хвост соседней
+   панели не подглядывал из-за края окна.
+   Сдвиг для ES задаёт JS в пикселях (ширина окна + gap) — так нет
+   неоднозначности с тем, от чего считаются проценты в translateX. */
+.country-track {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Каждая страна — ровно ширина видимой области вьюпорта.
+   flex:0 0 100% — не сжимается и не растягивается. */
+.country-pane {
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0;
+}
+
+/* Неактивная панель не должна перехватывать клики из-под активной */
+.country-pane[aria-hidden="true"] {
+    pointer-events: none;
+}
+
+/* Лейбл «<date> in PT» — наследует вид .last-in-pt («since …»).
+   Отдельный класс оставлен как точка кастомизации, если понадобится
+   отличать его от «since …». */

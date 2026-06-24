@@ -1,0 +1,220 @@
+[
+  {
+    "artist": "Hans Zimmer",
+    "dates": [
+      "2026-03-26"
+    ],
+    "price": "",
+    "link": "https://soundtrackfest.com/en/micro/hans-zimmer-live-the-next-level-2026-spain/",
+    "festival": null,
+    "city": "Valencia",
+    "lastInPortugal": null,
+    "added": "2026-06-23"
+  },
+  {
+    "artist": "Rosalia",
+    "dates": [
+      "2026-03-30"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/artist/rosalia-tickets/993028",
+    "festival": null,
+    "city": "Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-23"
+  },
+  {
+    "artist": "Tame Impala",
+    "dates": [
+      "2026-04-07"
+    ],
+    "price": "",
+    "link": "https://www.livenation.es/tame-impala-tickets-adp146628",
+    "festival": null,
+    "city": "Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-23"
+  },
+  {
+    "type": "festival",
+    "name": "PRIMAVERA SOUND",
+    "city": "Barcelona",
+    "mapLink": null,
+    "pricing": "1 day – €110, 3 days – €275",
+    "link": "https://www.primaverasound.com/en/barcelona",
+    "concerts": [
+      {
+        "artist": "Doja Cat",
+        "dates": ["2026-06-04"],
+        "support": [],
+        "featured": true
+      },
+      {
+        "artist": "Massive Attack",
+        "dates": ["2026-06-04"],
+        "support": [],
+        "featured": true
+      },
+      {
+        "artist": "The Cure",
+        "dates": ["2026-06-05"],
+        "support": [],
+        "featured": true
+      },
+      {
+        "artist": "Skrillex",
+        "dates": ["2026-06-05"],
+        "support": []
+      },
+      {
+        "artist": "the xx",
+        "dates": ["2026-06-06"],
+        "support": []
+      },
+      {
+        "artist": "Gorillaz",
+        "dates": ["2026-06-06"],
+        "support": []
+      },
+      {
+        "artist": "My Bloody Valentine",
+        "dates": ["2026-06-06"],
+        "support": []
+      }
+    ],
+    "added": "2026-06-23"
+  },
+  {
+    "artist": "Linkin Park",
+    "dates": [
+      "2026-06-23"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/artist/linkin-park-tickets/10021",
+    "festival": null,
+    "city": "Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-23"
+  },
+  {
+    "artist": "BTS",
+    "dates": [
+      "2026-06-26"
+    ],
+    "price": "",
+    "link": "https://www.livenation.es/en/event/bts-world-tour-arirang-in-madrid-madrid-tickets-edp1645475",
+    "festival": null,
+    "city": "Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-23"
+  },
+  {
+    "artist": "Iron Maiden",
+    "dates": [
+      "2026-07-04"
+    ],
+    "price": "",
+    "link": "https://www.ironmaiden.com/tour/run-for-your-lives-world-tour-2026/",
+    "festival": null,
+    "city": "Cartagena",
+    "lastInPortugal": null,
+    "added": "2026-06-23"
+  },
+  {
+    "type": "festival",
+    "name": "MAD COOL",
+    "city": "Madrid",
+    "mapLink": null,
+    "pricing": "1 day – €95, 4 days – €230",
+    "link": "https://madcoolfestival.es/",
+    "concerts": [
+      {
+        "artist": "Foo Fighters",
+        "dates": ["2026-07-08"],
+        "support": [],
+        "featured": true
+      },
+      {
+        "artist": "Florence + The Machine",
+        "dates": ["2026-07-09"],
+        "support": [],
+        "featured": true
+      },
+      {
+        "artist": "Twenty One Pilots",
+        "dates": ["2026-07-10"],
+        "support": [],
+        "featured": true
+      },
+      {
+        "artist": "Pulp",
+        "dates": ["2026-07-09"],
+        "support": []
+      },
+      {
+        "artist": "Lorde",
+        "dates": ["2026-07-10"],
+        "support": []
+      },
+      {
+        "artist": "Kings of Leon",
+        "dates": ["2026-07-11"],
+        "support": []
+      },
+      {
+        "artist": "Nick Cave & The Bad Seeds",
+        "dates": ["2026-07-11"],
+        "support": []
+      }
+    ],
+    "added": "2026-06-23"
+  },
+  {
+    "artist": "Bruno Mars",
+    "dates": [
+      "2026-07-10"
+    ],
+    "price": "",
+    "link": "https://www.livenation.es/",
+    "festival": null,
+    "city": "Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-23"
+  },
+  {
+    "artist": "My Chemical Romance",
+    "dates": [
+      "2026-07-18"
+    ],
+    "price": "",
+    "link": "https://blog.ticketmaster.es/post/my-chemical-romance-madrid-2026-the-black-parade-38287/",
+    "festival": null,
+    "city": "Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-23"
+  },
+  {
+    "artist": "The Weeknd",
+    "dates": [
+      "2026-08-28"
+    ],
+    "price": "",
+    "link": "https://www.livenation.es/en/event/the-weeknd-after-hours-til-dawn-tour-madrid-tickets-edp1617052",
+    "festival": null,
+    "city": "Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-23"
+  },
+  {
+    "artist": "Placebo",
+    "dates": [
+      "2026-10-01"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/artist/placebo-tickets/5183",
+    "festival": null,
+    "city": "Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-23"
+  }
+]

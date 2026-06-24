@@ -453,3 +453,6 @@ a.city-link {
 .subscribe-copy a {
     color: inherit;
 }
+
+/* SPAIN FEATURE (переключатель PT/ES) временно отключена.
+   Её стили вынесены в spain-feature.css (не подключён). */
