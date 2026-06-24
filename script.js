@@ -49,6 +49,27 @@ function formatShortDate(date) {
     });
 }
 
+// Справочник площадок (venues.json): { slug: {name, city, mapLink} }.
+// У концерта хранится только venue-slug — отсюда подтягиваются city и mapLink,
+// чтобы одну и ту же ссылку на карту не вбивать руками для каждого концерта.
+// Разворачивает venue-ссылки прямо в данных: проставляет item.city и
+// item.mapLink из справочника. Если у item уже есть свои city/mapLink —
+// они имеют приоритет (override). Итоговый city: «Город, Площадка».
+function resolveVenues(data, venues = {}) {
+    const apply = (item) => {
+        const v = item.venue && venues[item.venue];
+        if (v) {
+            // Показываем только город; название площадки пока не выводим
+            // (хранится в справочнике, может пригодиться позже).
+            if (!item.city) item.city = v.city;
+            if (!item.mapLink) item.mapLink = v.mapLink;
+        }
+        (item.concerts || []).forEach(apply);
+    };
+    data.forEach(apply);
+    return data;
+}
+
 // Город + (опционально) иконка-стрелка с ссылкой на Google Maps.
 // extraCls — доп. классы на обёртку (напр. 'detail', чтобы скрывать до раскрытия).
 // Если mapLink не задан — просто текст, без иконки и без перехода.
@@ -493,9 +514,16 @@ Promise.all([
 // ===== /SPAIN FEATURE — bootstrap (отключено) =====
 
 // ОРИГИНАЛЬНЫЙ БУТСТРАП (активен, пока фича Испании отключена):
-fetch('concerts.json')
-    .then(response => response.json())
-    .then(data => renderConcertList(data, document.getElementById('concerts')))
+// Грузим список концертов и справочник площадок параллельно, затем
+// разворачиваем venue-ссылки в city/mapLink перед рендером.
+Promise.all([
+    fetch('concerts.json').then(r => r.json()),
+    fetch('venues.json').then(r => r.json()).catch(() => ({})),
+])
+    .then(([data, venues]) => {
+        resolveVenues(data, venues);
+        renderConcertList(data, document.getElementById('concerts'));
+    })
     .catch(error => console.error('Ошибка загрузки данных:', error));
 
 // Подписка на рассылку.

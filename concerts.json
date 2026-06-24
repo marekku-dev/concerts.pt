@@ -177,7 +177,6 @@
     "pricing": "1 day – €89, 2 days – €157",
     "link": "https://rockinriolisboa.pt/",
     "city": "Lisbon",
-    "mapLink": "https://maps.app.goo.gl/AfiKDZoTXaUcVmy16",
     "concerts": [
       {
         "artist": "Katy Perry",
@@ -277,7 +276,8 @@
         "added": "2026-06-20"
       }
     ],
-    "added": "2026-06-20"
+    "added": "2026-06-20",
+    "venue": "parque-tejo"
   },
   {
     "type": "festival",
@@ -285,7 +285,6 @@
     "pricing": "Free",
     "link": "https://mimofestival.com/2026/en/",
     "city": "Guimarães",
-    "mapLink": "https://www.google.com/maps/place/Palace+Duques+de+Bragan%C3%A7a/@41.4486911,-8.3017718,14.86z/data=!4m14!1m7!3m6!1s0xd24efec66173c23:0xfce99770ca56ac39!2sGuimar%C3%A3es+Castle!8m2!3d41.4478935!4d-8.2903191!16zL20vMDY4Zjh3!3m5!1s0xd24e598bfae9dab:0x5cc6b66a8b587c6c!8m2!3d41.4465409!4d-8.2911855!16zL20vMDI3c3Zk?entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D",
     "concerts": [
       {
         "artist": "Oumou Sangaré",
@@ -345,7 +344,8 @@
         "added": "2026-06-20"
       }
     ],
-    "added": "2026-06-20"
+    "added": "2026-06-20",
+    "venue": "mimo-guimaraes"
   },
   {
     "artist": "Iron Maiden",
@@ -356,9 +356,9 @@
     "link": "https://www.ticketline.pt/evento/iron-maiden-97240/sessao/119247_1153_1783449000",
     "festival": null,
     "city": "Lisbon",
-    "mapLink": "https://maps.app.goo.gl/8VksUXi7ETh74Tgu8",
     "lastInPortugal": 2023,
-    "added": "2026-06-20"
+    "added": "2026-06-20",
+    "venue": "estadio-da-luz"
   },
   {
     "artist": "Scorpions",
@@ -369,9 +369,9 @@
     "link": "https://www.ticketline.pt/evento/scorpions-coming-home-2026-100109/sessao/121913_3957_1783540800",
     "festival": null,
     "city": "Lisbon",
-    "mapLink": "https://maps.app.goo.gl/vvR1N8ZzNcv9KBbu7",
     "lastInPortugal": 2024,
-    "added": "2026-06-20"
+    "added": "2026-06-20",
+    "venue": "meo-arena"
   },
   {
     "type": "festival",
@@ -379,7 +379,6 @@
     "pricing": "1 day – €84, 2 days – €168, 3 days – €199",
     "link": "https://nosalive.com/",
     "city": "Lisbon",
-    "mapLink": "https://maps.app.goo.gl/CnevE1f5gujNVZGDA",
     "concerts": [
       {
         "artist": "Twenty One Pilots",
@@ -507,7 +506,8 @@
         "added": "2026-06-20"
       }
     ],
-    "added": "2026-06-20"
+    "added": "2026-06-20",
+    "venue": "passeio-maritimo-alges"
   },
   {
     "type": "festival",
@@ -515,7 +515,6 @@
     "pricing": "1 day – €35...75",
     "link": "https://www.ageascooljazz.pt/index.html",
     "city": "Cascais",
-    "mapLink": "https://maps.app.goo.gl/cCUkqCdrUttpZcip7",
     "concerts": [
       {
         "artist": "Gilberto Gil",
@@ -593,7 +592,8 @@
         "added": "2026-06-22"
       }
     ],
-    "added": "2026-06-20"
+    "added": "2026-06-20",
+    "venue": "hipodromo-cascais"
   },
   {
     "artist": "Ye",
@@ -604,9 +604,106 @@
     "link": "https://www.bol.pt/Comprar/Bilhetes/175313/1935385/Sectores",
     "festival": null,
     "city": "Faro",
-    "mapLink": "https://maps.app.goo.gl/cKAATgQfULsEuwwH6",
     "lastInPortugal": 2011,
-    "added": "2026-06-21"
+    "added": "2026-06-21",
+    "venue": "estadio-algarve"
+  },
+  {
+    "type": "festival",
+    "name": "VODAFONE",
+    "pricing": "1 day – €60",
+    "link": "https://www.vodafoneparedesdecoura.com/",
+    "city": "Paredes de Coura",
+    "concerts": [
+      {
+        "artist": "Kneecap, Wet Leg",
+        "dates": [
+          "2026-08-12"
+        ],
+        "featured": true,
+        "support": [
+          "CMAT",
+          "The Horrors",
+          "Getdown Services",
+          "Greg Freeman",
+          "Westside Cowboy",
+          "First Breath After Coma + Salvador Sobral",
+          "Capitão Fausto",
+          "Horsegirl",
+          "University",
+          "Miramar"
+        ],
+        "lastInPortugal": null,
+        "added": "2026-06-24"
+      },
+      {
+        "artist": "Underworld",
+        "dates": [
+          "2026-08-13"
+        ],
+        "featured": true,
+        "support": [
+          "Hermanos Gutiérrez",
+          "Aldous Harding",
+          "Kurt Vile & The Violators",
+          "Pale Jay",
+          "Wu Lyf",
+          "Show Me The Body",
+          "Bassvictim",
+          "Friko",
+          "Tomode",
+          "A Garota Não",
+          "Milhanas"
+        ],
+        "lastInPortugal": null,
+        "added": "2026-06-24"
+      },
+      {
+        "artist": "M.I.A., Bloc Party",
+        "dates": [
+          "2026-08-14"
+        ],
+        "featured": true,
+        "support": [
+          "Benjamin Clementine",
+          "Carolina Durante",
+          "Joy Orbison",
+          "Vendredi sur Mer",
+          "Maruja",
+          "Ryan Davis & The Roadhouse Band",
+          "Terraplana",
+          "Strawberry Guy",
+          "Sérgio & Os Assessores com Amigos",
+          "Noko Woi"
+        ],
+        "lastInPortugal": null,
+        "added": "2026-06-24"
+      },
+      {
+        "artist": "Amyl and The Sniffers",
+        "dates": [
+          "2026-08-15"
+        ],
+        "featured": true,
+        "support": [
+          "Thundercat",
+          "Patrick Watson (solo piano)",
+          "Meute",
+          "Cate Le Bon",
+          "Sophia Stel",
+          "Hudson Freeman",
+          "Marie Davidson (DJ set)",
+          "Prostitute",
+          "Dame Area",
+          "Julia Mestre",
+          "Noiserv"
+        ],
+        "lastInPortugal": null,
+        "added": "2026-06-24"
+      }
+    ],
+    "added": "2026-06-24",
+    "venue": "paredes-de-coura"
   },
   {
     "type": "festival",
@@ -614,7 +711,6 @@
     "pricing": "1 day – €55",
     "link": "https://cavilardemouros.bol.pt/",
     "city": "Vilar de Mouros",
-    "mapLink": "https://maps.app.goo.gl/qeWfhbsefH9jiJut9",
     "concerts": [
       {
         "artist": "Yungblud",
@@ -671,7 +767,8 @@
         "added": "2026-06-22"
       }
     ],
-    "added": "2026-06-22"
+    "added": "2026-06-22",
+    "venue": "vilar-de-mouros"
   },
   {
     "type": "festival",
@@ -679,7 +776,6 @@
     "pricing": "1 day – €65, 3 days – €160",
     "link": "https://meokalorama.pt/",
     "city": "Lisbon",
-    "mapLink": "https://maps.app.goo.gl/BnhFLPp2rTUXymqo7",
     "concerts": [
       {
         "artist": "Robbie Williams",
@@ -759,7 +855,8 @@
         "added": "2026-06-20"
       }
     ],
-    "added": "2026-06-20"
+    "added": "2026-06-20",
+    "venue": "parque-bela-vista"
   },
   {
     "artist": "The Weeknd",
@@ -771,9 +868,9 @@
     "link": "https://blueticket.meo.pt/pt/tour/107/the-weeknd-after-hours-til-dawn-tour-5-e-6-set",
     "festival": null,
     "city": "Lisbon",
-    "mapLink": "https://maps.app.goo.gl/arfStEmfwDZMdHSa8",
     "lastInPortugal": 2023,
-    "added": "2026-06-20"
+    "added": "2026-06-20",
+    "venue": "estadio-restelo"
   },
   {
     "artist": "Sigur Rós",
@@ -784,9 +881,9 @@
     "link": "https://www.ticketline.pt/en/evento/sigur-ros-102956/sessao/124599_30_1789675200",
     "festival": null,
     "city": "Lisbon",
-    "mapLink": "https://maps.app.goo.gl/HWdtB82jZUyvj7B38",
     "lastInPortugal": 2022,
-    "added": "2026-06-20"
+    "added": "2026-06-20",
+    "venue": "campo-pequeno"
   },
   {
     "artist": "Mac DeMarco",
@@ -797,9 +894,9 @@
     "link": "https://feverup.com/m/476596?cp_landing_source=www.primaverasound",
     "festival": null,
     "city": "Lisbon",
-    "mapLink": "https://maps.app.goo.gl/6rMSUbVD1ssz9CaA6",
     "lastInPortugal": 2022,
-    "added": "2026-06-20"
+    "added": "2026-06-20",
+    "venue": "lav-lisboa-ao-vivo"
   },
   {
     "artist": "Placebo",
@@ -823,9 +920,9 @@
     "link": "https://blueticket.meo.pt/pt/Event/15722",
     "festival": null,
     "city": "Lisbon",
-    "mapLink": "https://maps.app.goo.gl/vvR1N8ZzNcv9KBbu7",
     "lastInPortugal": 2024,
-    "added": "2026-06-20"
+    "added": "2026-06-20",
+    "venue": "meo-arena"
   },
   {
     "artist": "Jungle",
@@ -836,9 +933,9 @@
     "link": "https://www.ticketline.pt/en/evento/jungle-103353/sessao/124985_3957_1792868400",
     "festival": null,
     "city": "Lisbon",
-    "mapLink": "https://maps.app.goo.gl/vvR1N8ZzNcv9KBbu7",
     "lastInPortugal": 2024,
-    "added": "2026-06-20"
+    "added": "2026-06-20",
+    "venue": "meo-arena"
   },
   {
     "artist": "Pitbull",
@@ -849,9 +946,9 @@
     "link": "https://arena.meo.pt/en/agenda/pitbull-im-back_en/15887",
     "festival": null,
     "city": "Lisbon",
-    "mapLink": "https://maps.app.goo.gl/vvR1N8ZzNcv9KBbu7",
     "lastInPortugal": null,
-    "added": "2026-06-20"
+    "added": "2026-06-20",
+    "venue": "meo-arena"
   },
   {
     "artist": "Cat Power",
@@ -862,8 +959,8 @@
     "link": "https://www.ticketline.pt/evento/cat-power-misty-fest-103614/sessao/125237_30_1794603600",
     "festival": "Misty Fest",
     "city": "Lisbon",
-    "mapLink": "https://maps.app.goo.gl/rvgsG2qq8D6Xewza9",
     "lastInPortugal": 2025,
-    "added": "2026-06-24"
+    "added": "2026-06-24",
+    "venue": "campo-pequeno"
   }
 ]

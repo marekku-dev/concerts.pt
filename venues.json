@@ -1,0 +1,67 @@
+{
+  "meo-arena": {
+    "name": "MEO Arena",
+    "city": "Lisbon",
+    "mapLink": "https://maps.app.goo.gl/vvR1N8ZzNcv9KBbu7"
+  },
+  "estadio-da-luz": {
+    "name": "Estádio da Luz",
+    "city": "Lisbon",
+    "mapLink": "https://maps.app.goo.gl/8VksUXi7ETh74Tgu8"
+  },
+  "passeio-maritimo-alges": {
+    "name": "Passeio Marítimo de Algés",
+    "city": "Lisbon",
+    "mapLink": "https://maps.app.goo.gl/CnevE1f5gujNVZGDA"
+  },
+  "hipodromo-cascais": {
+    "name": "Hipódromo Manuel Possolo",
+    "city": "Cascais",
+    "mapLink": "https://maps.app.goo.gl/cCUkqCdrUttpZcip7"
+  },
+  "estadio-algarve": {
+    "name": "Estádio Algarve",
+    "city": "Faro",
+    "mapLink": "https://maps.app.goo.gl/cKAATgQfULsEuwwH6"
+  },
+  "vilar-de-mouros": {
+    "name": "Vilar de Mouros",
+    "city": "Vilar de Mouros",
+    "mapLink": "https://maps.app.goo.gl/qeWfhbsefH9jiJut9"
+  },
+  "parque-bela-vista": {
+    "name": "Parque da Bela Vista",
+    "city": "Lisbon",
+    "mapLink": "https://maps.app.goo.gl/BnhFLPp2rTUXymqo7"
+  },
+  "estadio-restelo": {
+    "name": "Estádio do Restelo",
+    "city": "Lisbon",
+    "mapLink": "https://maps.app.goo.gl/arfStEmfwDZMdHSa8"
+  },
+  "campo-pequeno": {
+    "name": "Sagres Campo Pequeno",
+    "city": "Lisbon",
+    "mapLink": "https://maps.app.goo.gl/HWdtB82jZUyvj7B38"
+  },
+  "lav-lisboa-ao-vivo": {
+    "name": "LAV — Lisboa ao Vivo",
+    "city": "Lisbon",
+    "mapLink": "https://maps.app.goo.gl/6rMSUbVD1ssz9CaA6"
+  },
+  "parque-tejo": {
+    "name": "Parque Tejo",
+    "city": "Lisbon",
+    "mapLink": "https://maps.app.goo.gl/AfiKDZoTXaUcVmy16"
+  },
+  "paredes-de-coura": {
+    "name": "Praia Fluvial do Taboão",
+    "city": "Paredes de Coura",
+    "mapLink": "https://www.google.com/maps/search/?api=1&query=Praia+Fluvial+do+Tabu%C3%A3o+Paredes+de+Coura"
+  },
+  "mimo-guimaraes": {
+    "name": "Centro Histórico de Guimarães",
+    "city": "Guimarães",
+    "mapLink": "https://www.google.com/maps/place/Palace+Duques+de+Bragan%C3%A7a/@41.4486911,-8.3017718,14.86z/data=!4m14!1m7!3m6!1s0xd24efec66173c23:0xfce99770ca56ac39!2sGuimar%C3%A3es+Castle!8m2!3d41.4478935!4d-8.2903191!16zL20vMDY4Zjh3!3m5!1s0xd24e598bfae9dab:0x5cc6b66a8b587c6c!8m2!3d41.4465409!4d-8.2911855!16zL20vMDI3c3Zk?entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D"
+  }
+}
