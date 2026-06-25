@@ -7,7 +7,7 @@
 }
 
 body {
-	font-family: 'Arial';
+	font-family: Arial, Helvetica, sans-serif;
 	background-color: #f5f5f5;
 }
 
@@ -30,6 +30,8 @@ footer {
 	display: flex;
 	justify-content: center;
 	color: #b3b3b3;
+    background-color: #fff;
+    margin-top: -4px;
 }
 
 footer a {
@@ -74,24 +76,28 @@ footer a {
 }
 
 .wrapper {
-	background-color: #fff;
 	width: 360px;
 	margin: 20px auto;
-	padding: 10px;
+	/* MONTH CARDS активны: wrapper прозрачный, белый фон «нарезан» на
+	   карточки; padding 0 по бокам — карточки во всю ширину 360px;
+	   gap 4px — серые промежутки между всеми карточками. */
+	padding: 10px 0;
 	display: flex;
 	flex-direction: column;
-	gap: 80px;
+	gap: 4px;
 }
 
-#concerts, .festival-concerts {
+#concerts {
 	display: flex;
 	flex-direction: column;
-	padding: 5px 0;
 	gap: 0;
 }
 
 .festival-concerts {
-	gap: 4px;
+	display: flex;
+	flex-direction: column;
+	padding: 5px 0;
+	gap: 6px;
 	transition: margin-top 0.2s ease;
 }
 
@@ -102,6 +108,11 @@ footer a {
 
 #concerts a {
 	text-decoration: none;
+}
+
+.intro-card {
+    padding: 16px 16px 64px 16px;
+    background-color: #fff;
 }
 
 .price-wrapper {
@@ -334,7 +345,9 @@ a.city-link {
 
 /* Разделительная линия «прошедшие / предстоящие».
    На десктопе чуть шире контейнера (вылезает за края на 40px),
-   на мобиле — вровень с контейнером. */
+   на мобиле — вровень с контейнером.
+   ===== MONTH CARDS (фича на паузе): в режиме месяцев-карточек линия
+   во всю ширину карточек (margin: 0), без вылета. ===== /MONTH CARDS ===== */
 .today-line {
     height: 1px;
     background-color: #000;
@@ -347,11 +360,57 @@ a.city-link {
     }
 }
 
+/* Подпись месяца в плоском списке (MONTH_HEADINGS). Тихий стиль, как
+   у прочих подписей сайта (uppercase, серый, разрядка), отбита воздухом
+   сверху, чтобы месяцы дышали и список не выглядел сплошным. Выровнена
+   по левому краю карточек концертов (~10px от края панели). */
+.month-heading {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+    line-height: 16px;
+    color: #b3b3b3;
+    padding: 0 6px;
+    text-align: center;
+}
+
+/* ============================================================
+   MONTH CARDS — стили (АКТИВНО).
+
+   Месяцы-карточки: белый фон «нарезан» на отдельные белые карточки
+   (заголовок сайта, каждый месяц концертов, подписка) на сером фоне
+   страницы, с заголовком месяца сверху. Без скруглений; промежутки
+   между карточками — 2px (через gap у .wrapper, у месяцев margin).
+
+   Чтобы выключить (вернуть плоский список в одном белом wrapper):
+     1) MONTH_CARDS = false в script.js;
+     2) в .wrapper вернуть background:#fff / padding:10px / gap:80px;
+     3) закомментировать блок ниже.
+   ============================================================ */
+
+.month-group,
+.subscribe {
+    background-color: #fff;
+    padding: 16px;
+}
+
+.month-group {
+    margin-bottom: 4px;
+}
+
+.month-group:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== /MONTH CARDS ===== */
+
 /* Newsletter subscription */
 .subscribe {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .subscribe-copy h2 {
@@ -455,5 +514,5 @@ a.city-link {
     color: inherit;
 }
 
-/* SPAIN FEATURE (переключатель PT/ES) временно отключена.
-   Её стили вынесены в spain-feature.css (не подключён). */
+/* Стили переключателя PT/ES вынесены в spain-feature.css
+   (подключается в index.html после main.css). */

@@ -139,7 +139,6 @@ function renderConcertList(data, container, ptDateMap, onLayoutChange, pastSlot)
         const today = new Date();
         today.setHours(0, 0, 0, 0);
 
-        // ===== SPAIN FEATURE (можно удалить вместе с фичей) =====
         // Нормализация имени артиста для сравнения PT/ES
         const norm = (s) => (s || '').trim().toLowerCase();
         const ptDateFor = (artist) => (ptDateMap ? ptDateMap.get(norm(artist)) : undefined);
@@ -149,7 +148,6 @@ function renderConcertList(data, container, ptDateMap, onLayoutChange, pastSlot)
             if (!d) return '';
             return `<span class="last-in-pt in-pt-label">${d} in PT</span>`;
         }
-        // ===== /SPAIN FEATURE =====
 
         function getLastDate(item) {
             if (item.type === 'festival') {
@@ -157,6 +155,57 @@ function renderConcertList(data, container, ptDateMap, onLayoutChange, pastSlot)
                 return new Date(allDates[allDates.length - 1]);
             }
             return new Date(item.dates[item.dates.length - 1]);
+        }
+
+        // Месячные подписи в списке. Два независимых режима:
+        //   MONTH_HEADINGS — простые заголовки месяцев в плоском списке,
+        //     отбитые воздухом (включено). Заголовок вставляется прямо в
+        //     container перед первым концертом месяца.
+        //   MONTH_CARDS — каждый месяц в отдельной белой карточке-обёртке
+        //     (.month-group) на сером фоне (ФИЧА НА ПАУЗЕ). Чтобы вернуть:
+        //     MONTH_CARDS = true + раскомментировать CSS-блок «MONTH CARDS»
+        //     в main.css + переключить .wrapper (см. фенс там) + снять
+        //     стыковку intro-card / sticky-плашки.
+        // MONTH_CARDS имеет приоритет: если он включён, заголовки идут
+        // внутрь карточек месяца, а не плоско.
+        const MONTH_HEADINGS = true;
+        const MONTH_CARDS = true;
+
+        // Дата начала — для группировки по месяцам (заголовки-разделители).
+        function getStartDate(item) {
+            if (item.type === 'festival') {
+                const allDates = item.concerts.flatMap(c => c.dates).slice().sort();
+                return new Date(allDates[0]);
+            }
+            return new Date(item.dates[0]);
+        }
+
+        // Ключ месяца «2026-3» (год+месяц) — чтобы March 2026 и March 2027
+        // не схлопывались в один заголовок.
+        const monthKey = (d) => `${d.getFullYear()}-${d.getMonth()}`;
+        const monthLabel = (d) =>
+            d.toLocaleDateString('en-US', { month: 'long' });
+
+        // Простой заголовок месяца в плоском списке (без карточки-обёртки).
+        function insertMonthHeading(date) {
+            const heading = document.createElement('div');
+            heading.className = 'month-heading';
+            heading.textContent = monthLabel(date);
+            container.appendChild(heading);
+        }
+
+        // Карточка месяца: обёртка с заголовком (uppercase, серый) сверху,
+        // дальше в неё складываются карточки концертов этого месяца.
+        // Возвращает элемент, в который рендерим карточки. (MONTH_CARDS)
+        function startMonthGroup(date) {
+            const group = document.createElement('div');
+            group.className = 'month-group';
+            const heading = document.createElement('div');
+            heading.className = 'month-heading';
+            heading.textContent = monthLabel(date);
+            group.appendChild(heading);
+            container.appendChild(group);
+            return group;
         }
 
         // Есть ли вообще прошедшие концерты — если нет, кнопку не показываем
@@ -217,14 +266,13 @@ function renderConcertList(data, container, ptDateMap, onLayoutChange, pastSlot)
                 el.classList.toggle('expanded', expanded);
             }
 
-            // ===== SPAIN FEATURE: высота карточки меняется (transition ~0.25s),
-            // сообщаем наружу, чтобы пересчитать высоту вьюпорта =====
+            // Высота карточки меняется (transition ~0.25s), сообщаем наружу,
+            // чтобы пересчитать высоту вьюпорта.
             if (typeof onLayoutChange === 'function') {
                 onLayoutChange();
                 // повторно после завершения CSS-анимации раскрытия
                 setTimeout(onLayoutChange, 280);
             }
-            // ===== /SPAIN FEATURE =====
         }
 
         // Хранилище отрисованных карточек по индексу — чтобы тоггл менял
@@ -255,9 +303,8 @@ function renderConcertList(data, container, ptDateMap, onLayoutChange, pastSlot)
                     const hiddenCls = (hasFeatured && !concert.featured)
                         ? ' festival-concert-collapsible' : '';
 
-                    // ===== SPAIN FEATURE: лейбл «<date> in PT», если артист уже есть в PT =====
+                    // Лейбл «<date> in PT», если артист уже есть в PT
                     const inPtLabel = inPtLabelHTML(concert.artist);
-                    // ===== /SPAIN FEATURE =====
 
                     concertsHTML += `
                         <div class="festival-concert${hiddenCls}">
@@ -302,9 +349,8 @@ function renderConcertList(data, container, ptDateMap, onLayoutChange, pastSlot)
 
                 const lastInPtLabel = lastInPtLabelHTML(item.lastInPortugal);
 
-                // ===== SPAIN FEATURE: лейбл «<date> in PT» для дубля в ES =====
+                // Лейбл «<date> in PT» для дубля в ES
                 const inPtLabel = inPtLabelHTML(item.artist);
-                // ===== /SPAIN FEATURE =====
 
                 return `
                     <div class="concert-row">
@@ -331,6 +377,13 @@ function renderConcertList(data, container, ptDateMap, onLayoutChange, pastSlot)
         dividerInserted = false;
         for (const k in cardEls) delete cardEls[k];
 
+        // Текущий месяц и его карточка-обёртка. Сбрасываем на каждый
+        // render(); на смене месяца открываем новую карточку месяца.
+        // Активно только при MONTH_CARDS (см. флаг выше). Когда выключено —
+        // карточки идут плоским списком прямо в container, как раньше.
+        let currentMonth = null;
+        let currentGroup = null;
+
         data.forEach((item, index) => {
             const expanded = expandedSet.has(index);
             const lastDate = getLastDate(item);
@@ -341,9 +394,29 @@ function renderConcertList(data, container, ptDateMap, onLayoutChange, pastSlot)
                 return;
             }
 
-            // Разделитель «past / upcoming» показываем только когда видны прошедшие
+            // Разделитель «past / upcoming» показываем только когда видны прошедшие.
+            // После него сбрасываем месяц, чтобы первый предстоящий снова
+            // открыл свою карточку месяца.
             if (showPast && !dividerInserted && !isPast) {
                 insertDivider();
+                currentMonth = null;
+                currentGroup = null;
+            }
+
+            // Новая подпись месяца перед первым концертом этого месяца.
+            // MONTH_CARDS — карточка-обёртка; иначе MONTH_HEADINGS —
+            // простой заголовок в плоском списке.
+            if (MONTH_CARDS || MONTH_HEADINGS) {
+                const startDate = getStartDate(item);
+                const itemMonth = monthKey(startDate);
+                if (itemMonth !== currentMonth) {
+                    if (MONTH_CARDS) {
+                        currentGroup = startMonthGroup(startDate);
+                    } else {
+                        insertMonthHeading(startDate);
+                    }
+                    currentMonth = itemMonth;
+                }
             }
 
             const div = document.createElement('div');
@@ -362,7 +435,7 @@ function renderConcertList(data, container, ptDateMap, onLayoutChange, pastSlot)
             });
 
             cardEls[index] = div;
-            container.appendChild(div);
+            (currentGroup || container).appendChild(div);
         });
         }
 
@@ -370,16 +443,12 @@ function renderConcertList(data, container, ptDateMap, onLayoutChange, pastSlot)
 }
 
 // ============================================================
-// SPAIN FEATURE — переключатель PT/ES со слайдом.
-// СЕЙЧАС ОТКЛЮЧЕНА (закомментирована) — фича на будущее, допиливается.
-// Чтобы включить обратно: убрать обёртку /* ... */ вокруг этого блока
-// (bootstrap'а) и закомментировать «ОРИГИНАЛЬНЫЙ БУТСТРАП» ниже. Также
-// раскомментировать CSS-блок «SPAIN FEATURE» в main.css. Сам рендер с
-// поддержкой ES-списка (функция renderConcertList с ptDateMap) остаётся
-// в коде выше — он обратно совместим и не мешает одиночному списку.
-// Данные лежат в concerts-es.json.
+// Переключатель PT/ES со слайдом.
+// Грузим оба списка концертов (PT и ES) и справочник площадок,
+// строим map «PT-артист → дата», чтобы в ES-списке показывать
+// лейбл «<date> in PT» для артистов, уже играющих в Португалии.
+// Данные ES лежат в concerts-es.json.
 // ============================================================
-// SPAIN FEATURE bootstrap — ВКЛЮЧЕНО.
 Promise.all([
     fetch('concerts.json').then(r => r.json()),
     fetch('concerts-es.json').then(r => r.json()),
@@ -517,17 +586,61 @@ Promise.all([
             paneEs.setAttribute('aria-hidden', activeCountry === 'es' ? 'false' : 'true');
         }
 
+        // Порядок стран — для свайпа (сосед слева/справа).
+        const countries = ['pt', 'es'];
+
+        // Единая точка смены активной страны: меняем состояние и
+        // синхронизируем кнопки, сдвиг, индикатор, высоту, aria и слот
+        // «show past». Используют и кнопки, и свайп.
+        function setCountry(country) {
+            if (country === activeCountry) return;
+            if (!countries.includes(country)) return;
+            activeCountry = country;
+            buttons.forEach(b => b.classList.toggle('active', b.dataset.country === country));
+            syncSlide();
+            syncAria();
+            syncPastSlot();
+            syncHeight();
+            syncThumb();
+        }
+
         buttons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                activeCountry = btn.dataset.country;
-                buttons.forEach(b => b.classList.toggle('active', b === btn));
-                syncSlide();
-                syncAria();
-                syncPastSlot();
-                syncHeight();
-                syncThumb();
-            });
+            btn.addEventListener('click', () => setCountry(btn.dataset.country));
         });
+
+        // Переключение свайпом по списку (в дополнение к кнопкам).
+        // Жест считаем свайпом только если он заметно горизонтальный —
+        // иначе это вертикальный скролл списка, его не трогаем. Тап по
+        // карточке (раскрытие) тоже не задеваем: при малом смещении ничего
+        // не делаем. preventDefault не зовём, чтобы не ломать скролл.
+        const SWIPE_MIN = 45;   // мин. горизонтальный сдвиг (px) для переключения
+        const SWIPE_RATIO = 1.4; // |Δx| должен превышать |Δy| во столько раз
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchActive = false;
+
+        viewport.addEventListener('touchstart', (e) => {
+            if (e.touches.length !== 1) { touchActive = false; return; }
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            touchActive = true;
+        }, { passive: true });
+
+        viewport.addEventListener('touchend', (e) => {
+            if (!touchActive) return;
+            touchActive = false;
+            const t = e.changedTouches[0];
+            const dx = t.clientX - touchStartX;
+            const dy = t.clientY - touchStartY;
+            // Не горизонтальный или слишком короткий — не свайп.
+            if (Math.abs(dx) < SWIPE_MIN) return;
+            if (Math.abs(dx) < Math.abs(dy) * SWIPE_RATIO) return;
+            const idx = countries.indexOf(activeCountry);
+            // Палец влево (dx<0) → следующая страна; вправо → предыдущая.
+            const nextIdx = dx < 0 ? idx + 1 : idx - 1;
+            if (nextIdx < 0 || nextIdx >= countries.length) return;
+            setCountry(countries[nextIdx]);
+        }, { passive: true });
 
         // Стартовая высота, aria, сдвиг и индикатор. Картинки (иконки
         // билета/карты) могут догрузиться позже и изменить высоту —
@@ -557,22 +670,6 @@ Promise.all([
         window.addEventListener('resize', onResize);
     })
     .catch(error => console.error('Ошибка загрузки данных:', error));
-// ===== /SPAIN FEATURE — bootstrap (включено) =====
-
-// ОРИГИНАЛЬНЫЙ БУТСТРАП (отключён, пока активна фича Испании):
-// Грузим список концертов и справочник площадок параллельно, затем
-// разворачиваем venue-ссылки в city/mapLink перед рендером.
-/*
-Promise.all([
-    fetch('concerts.json').then(r => r.json()),
-    fetch('venues.json').then(r => r.json()).catch(() => ({})),
-])
-    .then(([data, venues]) => {
-        resolveVenues(data, venues);
-        renderConcertList(data, document.getElementById('concerts'));
-    })
-    .catch(error => console.error('Ошибка загрузки данных:', error));
-*/
 
 // Подписка на рассылку.
 // Локально (localhost) форма стучится в server.js на порту 3000.
