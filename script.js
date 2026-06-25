@@ -135,7 +135,7 @@ function festivalPriceRange(pricing) {
 // выступления в PT» (строкой, напр. «Mar 6»). Если артист уже играет в
 // Португалии, в ES-списке рисуем рядом лейбл «Mar 6 in PT». Нужно только
 // для ES-списка.
-function renderConcertList(data, container, ptDateMap, onLayoutChange) {
+function renderConcertList(data, container, ptDateMap, onLayoutChange, pastSlot) {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
 
@@ -162,16 +162,24 @@ function renderConcertList(data, container, ptDateMap, onLayoutChange) {
         // Есть ли вообще прошедшие концерты — если нет, кнопку не показываем
         const hasPast = data.some(item => getLastDate(item) < today);
 
-        // Кнопка переключения над списком
+        // Кнопка переключения прошедших концертов. Живёт в левой части
+        // sticky-плашки (pastSlot). Текст переключается Show/Hide.
         let showPast = false;
         let toggleBtn = null;
+        function syncPastLabel() {
+            if (toggleBtn) toggleBtn.textContent = showPast ? 'Hide past concerts' : 'Show past concerts';
+        }
         if (hasPast) {
             toggleBtn = document.createElement('button');
             toggleBtn.className = 'toggle-past';
+            syncPastLabel();
             toggleBtn.addEventListener('click', () => {
                 showPast = !showPast;
+                syncPastLabel();
                 render();
+                if (typeof onLayoutChange === 'function') onLayoutChange();
             });
+            (pastSlot || container).appendChild(toggleBtn);
         }
 
         // Какие карточки раскрыты (по индексу в data)
@@ -187,10 +195,7 @@ function renderConcertList(data, container, ptDateMap, onLayoutChange) {
         function insertDivider() {
             const divider = document.createElement('div');
             divider.className = 'today-divider';
-            divider.innerHTML = `
-                <div class="today-divider-past">past</div>
-                <div class="today-divider-upcoming">upcoming</div>
-            `;
+            divider.innerHTML = `<div class="today-line"></div>`;
             container.appendChild(divider);
             dividerInserted = true;
         }
@@ -374,12 +379,17 @@ function renderConcertList(data, container, ptDateMap, onLayoutChange) {
 // в коде выше — он обратно совместим и не мешает одиночному списку.
 // Данные лежат в concerts-es.json.
 // ============================================================
-/* SPAIN FEATURE bootstrap — отключено, см. комментарий выше
+// SPAIN FEATURE bootstrap — ВКЛЮЧЕНО.
 Promise.all([
     fetch('concerts.json').then(r => r.json()),
-    fetch('concerts-es.json').then(r => r.json())
+    fetch('concerts-es.json').then(r => r.json()),
+    fetch('venues.json').then(r => r.json()).catch(() => ({})),
 ])
-    .then(([ptData, esData]) => {
+    .then(([ptData, esData, venues]) => {
+        // Разворачиваем venue-ссылки в city/mapLink для обоих списков.
+        resolveVenues(ptData, venues);
+        resolveVenues(esData, venues);
+
         const root = document.getElementById('concerts');
 
         // Map «имя PT-артиста → дата его выступления в PT» (включая
@@ -395,7 +405,13 @@ Promise.all([
         };
         ptData.forEach(item => {
             if (item.type === 'festival') {
-                item.concerts.forEach(c => addPt(c.artist, c.dates));
+                item.concerts.forEach(c => {
+                    addPt(c.artist, c.dates);
+                    // Артисты из support тоже играют в PT — индексируем их по
+                    // дате хедлайнера их дня, чтобы подсветка «in PT» работала
+                    // и для них (напр. Nick Cave в support фестиваля).
+                    (c.support || []).forEach(name => addPt(name, c.dates));
+                });
             } else {
                 addPt(item.artist, item.dates);
             }
@@ -405,10 +421,16 @@ Promise.all([
         // Скользящий индикатор (.country-toggle-thumb) ездит под активной
         // кнопкой; ширина/сдвиг задаются в JS по числу/индексу кнопок.
         root.innerHTML = `
-            <div class="country-toggle" role="tablist">
-                <span class="country-toggle-thumb" aria-hidden="true"></span>
-                <button class="country-toggle-btn active" data-country="pt" role="tab">PT</button>
-                <button class="country-toggle-btn" data-country="es" role="tab">ES</button>
+            <div class="country-toggle-bar">
+                <div class="past-slot">
+                    <div class="past-slot-pane" data-country="pt"></div>
+                    <div class="past-slot-pane" data-country="es" hidden></div>
+                </div>
+                <div class="country-toggle" role="tablist">
+                    <span class="country-toggle-thumb" aria-hidden="true"></span>
+                    <button class="country-toggle-btn active" data-country="pt" role="tab">PT</button>
+                    <button class="country-toggle-btn" data-country="es" role="tab">ES</button>
+                </div>
             </div>
             <div class="country-viewport">
                 <div class="country-track">
@@ -425,6 +447,8 @@ Promise.all([
         const toggle = root.querySelector('.country-toggle');
         const thumb = root.querySelector('.country-toggle-thumb');
         const buttons = root.querySelectorAll('.country-toggle-btn');
+        const pastSlotPt = root.querySelector('.past-slot-pane[data-country="pt"]');
+        const pastSlotEs = root.querySelector('.past-slot-pane[data-country="es"]');
 
         let activeCountry = 'pt';
 
@@ -462,8 +486,15 @@ Promise.all([
         const onPtLayout = () => { if (activeCountry === 'pt') syncHeight(); };
         const onEsLayout = () => { if (activeCountry === 'es') syncHeight(); };
 
-        renderConcertList(ptData, panePt, undefined, onPtLayout);
-        renderConcertList(esData, paneEs, ptDateMap, onEsLayout);
+        renderConcertList(ptData, panePt, undefined, onPtLayout, pastSlotPt);
+        renderConcertList(esData, paneEs, ptDateMap, onEsLayout, pastSlotEs);
+
+        // «Show past concerts» в плашке принадлежит активной стране —
+        // показываем слот активной, прячем неактивный.
+        function syncPastSlot() {
+            pastSlotPt.hidden = activeCountry !== 'pt';
+            pastSlotEs.hidden = activeCountry !== 'es';
+        }
 
         // aria-hidden на неактивной панели — и для доступности,
         // и чтобы отрубить её клики (см. CSS pointer-events).
@@ -478,6 +509,7 @@ Promise.all([
                 buttons.forEach(b => b.classList.toggle('active', b === btn));
                 syncSlide();
                 syncAria();
+                syncPastSlot();
                 syncHeight();
                 syncThumb();
             });
@@ -487,6 +519,7 @@ Promise.all([
         // билета/карты) могут догрузиться позже и изменить высоту —
         // пересчитываем по load.
         syncAria();
+        syncPastSlot();
         syncHeight();
         syncSlide();
         syncThumb();
@@ -510,12 +543,12 @@ Promise.all([
         window.addEventListener('resize', onResize);
     })
     .catch(error => console.error('Ошибка загрузки данных:', error));
-*/
-// ===== /SPAIN FEATURE — bootstrap (отключено) =====
+// ===== /SPAIN FEATURE — bootstrap (включено) =====
 
-// ОРИГИНАЛЬНЫЙ БУТСТРАП (активен, пока фича Испании отключена):
+// ОРИГИНАЛЬНЫЙ БУТСТРАП (отключён, пока активна фича Испании):
 // Грузим список концертов и справочник площадок параллельно, затем
 // разворачиваем venue-ссылки в city/mapLink перед рендером.
+/*
 Promise.all([
     fetch('concerts.json').then(r => r.json()),
     fetch('venues.json').then(r => r.json()).catch(() => ({})),
@@ -525,6 +558,7 @@ Promise.all([
         renderConcertList(data, document.getElementById('concerts'));
     })
     .catch(error => console.error('Ошибка загрузки данных:', error));
+*/
 
 // Подписка на рассылку.
 // Локально (localhost) форма стучится в server.js на порту 3000.

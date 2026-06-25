@@ -5,6 +5,9 @@
   publish = "."
   # Папка с serverless-функциями (subscribe.js и т.п.).
   functions = "netlify/functions"
+  # SEO-сборка: генерирует JSON-LD, статический HTML-fallback концертов
+  # и sitemap.xml из concerts.json перед публикацией. Идемпотентна.
+  command = "node build-seo.js"
 
 # Необязательный короткий путь: /api/subscribe → функция subscribe.
 # Удобнее, чем длинный /.netlify/functions/subscribe. Можно использовать любой.

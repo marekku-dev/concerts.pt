@@ -329,21 +329,22 @@ a.city-link {
 }
 
 .today-divider {
-    display: flex;
-    flex-direction: column;
     margin: 10px 0;
 }
 
-.today-divider-past {
-    color: #b3b3b3;
-    text-align: center;
-    margin-bottom: 4px;
+/* Разделительная линия «прошедшие / предстоящие».
+   На десктопе чуть шире контейнера (вылезает за края на 40px),
+   на мобиле — вровень с контейнером. */
+.today-line {
+    height: 1px;
+    background-color: #000;
+    margin: 0 -40px;
 }
 
-.today-divider-upcoming {
-    color: #000;
-    text-align: center;
-    margin-top: 4px;
+@media (max-width: 768px) {
+    .today-line {
+        margin: 0;
+    }
 }
 
 /* Newsletter subscription */

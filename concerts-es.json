@@ -39,67 +39,207 @@
     "type": "festival",
     "name": "PRIMAVERA SOUND",
     "city": "Barcelona",
-    "mapLink": null,
-    "pricing": "1 day – €110, 3 days – €275",
+    "mapLink": "https://maps.google.com/?q=Parc+del+Forum+Barcelona",
+    "pricing": "1 day – €135, 3 days – €350",
     "link": "https://www.primaverasound.com/en/barcelona",
     "concerts": [
       {
-        "artist": "Doja Cat",
-        "dates": ["2026-06-04"],
-        "support": [],
+        "artist": "Wet Leg",
+        "dates": [
+          "2026-06-03"
+        ],
+        "support": [
+          "Guitarricadelafuente",
+          "Yard Act",
+          "Ouineta"
+        ],
         "featured": true
       },
       {
-        "artist": "Massive Attack",
-        "dates": ["2026-06-04"],
-        "support": [],
+        "artist": "Doja Cat",
+        "dates": [
+          "2026-06-04"
+        ],
+        "support": [
+          "Massive Attack",
+          "Bad Gyal",
+          "Mac DeMarco",
+          "2hollis",
+          "Alex G",
+          "Blood Orange",
+          "Ravyn Lenae",
+          "Father John Misty",
+          "Men I Trust"
+        ],
         "featured": true
       },
       {
         "artist": "The Cure",
-        "dates": ["2026-06-05"],
-        "support": [],
+        "dates": [
+          "2026-06-05"
+        ],
+        "support": [
+          "Addison Rae",
+          "Skrillex",
+          "PinkPantheress",
+          "Ethel Cain",
+          "Role Model",
+          "JADE",
+          "Amaarae",
+          "Viagra Boys",
+          "Slowdive"
+        ],
         "featured": true
       },
       {
-        "artist": "Skrillex",
-        "dates": ["2026-06-05"],
-        "support": []
-      },
-      {
-        "artist": "the xx",
-        "dates": ["2026-06-06"],
-        "support": []
-      },
-      {
         "artist": "Gorillaz",
-        "dates": ["2026-06-06"],
-        "support": []
+        "dates": [
+          "2026-06-06"
+        ],
+        "support": [
+          "the xx",
+          "My Bloody Valentine",
+          "Peggy Gou",
+          "Little Simz",
+          "Big Thief",
+          "KNEECAP",
+          "MARINA",
+          "Sudan Archives"
+        ],
+        "featured": true
       },
       {
-        "artist": "My Bloody Valentine",
-        "dates": ["2026-06-06"],
-        "support": []
+        "artist": "Carl Cox",
+        "dates": [
+          "2026-06-07"
+        ],
+        "support": [
+          "Joseph Capriati",
+          "BLOND:ISH",
+          "Greta"
+        ],
+        "featured": true
       }
     ],
     "added": "2026-06-23"
   },
   {
-    "artist": "Linkin Park",
+    "artist": "Bad Bunny",
     "dates": [
-      "2026-06-23"
+      "2026-06-10",
+      "2026-06-11",
+      "2026-06-14",
+      "2026-06-15"
     ],
     "price": "",
-    "link": "https://www.ticketmaster.es/artist/linkin-park-tickets/10021",
+    "link": "https://www.ticketmaster.es/search?q=Bad%20Bunny",
     "festival": null,
     "city": "Madrid",
     "lastInPortugal": null,
-    "added": "2026-06-23"
+    "added": "2026-06-25"
+  },
+  {
+    "type": "festival",
+    "name": "O SON DO CAMIÑO",
+    "city": "Santiago de Compostela",
+    "mapLink": "https://maps.google.com/?q=Monte+do+Gozo+Santiago+de+Compostela",
+    "pricing": "1 day – €85, 3 days – €180",
+    "link": "https://osondocamino.es/",
+    "concerts": [
+      {
+        "artist": "Katy Perry",
+        "dates": [
+          "2026-06-18"
+        ],
+        "support": [
+          "Dani Martín",
+          "Carlos Ares",
+          "Leire Martínez",
+          "Barry B",
+          "The Molotovs",
+          "Michenlo",
+          "Habló Pablo"
+        ],
+        "featured": true
+      },
+      {
+        "artist": "Linkin Park",
+        "dates": [
+          "2026-06-19"
+        ],
+        "support": [
+          "Biffy Clyro",
+          "Hoobastank",
+          "Sexy Zebras",
+          "Niña Polaca",
+          "The Bloody Beetroots",
+          "D.Valentino",
+          "Corella"
+        ],
+        "featured": true
+      },
+      {
+        "artist": "DJ Snake",
+        "dates": [
+          "2026-06-20"
+        ],
+        "support": [
+          "Lola Índigo",
+          "Guitarricadelafuente",
+          "Afrojack",
+          "Sen Senra",
+          "MVRK",
+          "Dorian",
+          "Carlangas",
+          "Ortiga",
+          "Sarria"
+        ],
+        "featured": true
+      }
+    ],
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "Armin van Buuren",
+    "dates": [
+      "2026-06-19"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=Armin%20van%20Buuren",
+    "festival": null,
+    "city": "Arganda del Rey",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "OneRepublic",
+    "dates": [
+      "2026-06-20"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=OneRepublic",
+    "festival": null,
+    "city": "Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "David Guetta",
+    "dates": [
+      "2026-06-20"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=David%20Guetta",
+    "festival": null,
+    "city": "Arganda del Rey",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
   },
   {
     "artist": "BTS",
     "dates": [
-      "2026-06-26"
+      "2026-06-26",
+      "2026-06-27"
     ],
     "price": "",
     "link": "https://www.livenation.es/en/event/bts-world-tour-arirang-in-madrid-madrid-tickets-edp1645475",
@@ -109,77 +249,462 @@
     "added": "2026-06-23"
   },
   {
-    "artist": "Iron Maiden",
-    "dates": [
-      "2026-07-04"
+    "type": "festival",
+    "name": "STARLITE",
+    "city": "Marbella",
+    "mapLink": "https://maps.google.com/?q=Auditorio+Starlite+Marbella",
+    "pricing": "from €65/show",
+    "link": "https://starlitefestival.com/en/",
+    "concerts": [
+      {
+        "artist": "Lenny Kravitz",
+        "dates": [
+          "2026-06-29"
+        ],
+        "support": [],
+        "featured": true
+      },
+      {
+        "artist": "Maroon 5",
+        "dates": [
+          "2026-07-07"
+        ],
+        "support": [],
+        "featured": true
+      },
+      {
+        "artist": "Deep Purple",
+        "dates": [
+          "2026-07-09"
+        ],
+        "support": [],
+        "featured": true
+      },
+      {
+        "artist": "Jean-Michel Jarre",
+        "dates": [
+          "2026-07-13"
+        ],
+        "support": [],
+        "featured": true
+      },
+      {
+        "artist": "John Legend",
+        "dates": [
+          "2026-07-20"
+        ],
+        "support": [],
+        "featured": true
+      }
     ],
-    "price": "",
-    "link": "https://www.ironmaiden.com/tour/run-for-your-lives-world-tour-2026/",
-    "festival": null,
-    "city": "Cartagena",
-    "lastInPortugal": null,
-    "added": "2026-06-23"
+    "added": "2026-06-25"
+  },
+  {
+    "type": "festival",
+    "name": "RESURRECTION",
+    "city": "Viveiro",
+    "mapLink": "https://maps.google.com/?q=Resurrection+Fest+Viveiro",
+    "pricing": "4 days – €199",
+    "link": "https://www.resurrectionfest.es/",
+    "concerts": [
+      {
+        "artist": "Sabaton",
+        "dates": [
+          "2026-07-01"
+        ],
+        "support": [
+          "A Day To Remember",
+          "thrown",
+          "President",
+          "Man With A Mission",
+          "Annisokay"
+        ],
+        "featured": true
+      },
+      {
+        "artist": "Iron Maiden",
+        "dates": [
+          "2026-07-02"
+        ],
+        "support": [
+          "Anthrax",
+          "Angelus Apatrida",
+          "Feuerschwanz",
+          "Caskets"
+        ],
+        "featured": true
+      },
+      {
+        "artist": "Limp Bizkit",
+        "dates": [
+          "2026-07-03"
+        ],
+        "support": [
+          "Trivium",
+          "Bleed From Within",
+          "The Rasmus",
+          "Nevertel",
+          "Blaze The Trail"
+        ],
+        "featured": true
+      },
+      {
+        "artist": "Marilyn Manson",
+        "dates": [
+          "2026-07-04"
+        ],
+        "support": [
+          "Mastodon",
+          "P.O.D.",
+          "Imminence",
+          "Hamlet",
+          "Iscream",
+          "Never Ground"
+        ],
+        "featured": true
+      }
+    ],
+    "added": "2026-06-25"
+  },
+  {
+    "type": "festival",
+    "name": "BARCELONA ROCK FEST",
+    "city": "Barcelona",
+    "mapLink": "https://maps.google.com/?q=Parc+de+Can+Zam+Santa+Coloma+de+Gramenet",
+    "pricing": "3 days – €118",
+    "link": "https://rockfestbarcelona.com/",
+    "concerts": [
+      {
+        "artist": "Megadeth",
+        "dates": [
+          "2026-07-03"
+        ],
+        "support": [
+          "Sex Pistols",
+          "Loudness",
+          "Gotthard",
+          "Tyketto",
+          "Blues Pills",
+          "Pretty Maids",
+          "Latzen",
+          "Starace",
+          "Machete Law",
+          "Motörhits"
+        ],
+        "featured": true
+      },
+      {
+        "artist": "Helloween",
+        "dates": [
+          "2026-07-04"
+        ],
+        "support": [
+          "Accept",
+          "Sabaton",
+          "Testament",
+          "Primal Fear",
+          "Napalm Death",
+          "Bleed From Within",
+          "Tankard",
+          "Los Barones",
+          "Hiraes",
+          "Chino Banzai",
+          "Dünedain",
+          "T.N.T."
+        ],
+        "featured": true
+      },
+      {
+        "artist": "The Offspring",
+        "dates": [
+          "2026-07-05"
+        ],
+        "support": [
+          "Powerwolf",
+          "Bad Religion",
+          "Evaristo",
+          "Breaking Benjamin",
+          "Steel Panther",
+          "Cavalera Conspiracy",
+          "Chevelle",
+          "Orden Ogan",
+          "AMH",
+          "Rienda Suelta",
+          "Rat-Zinger",
+          "Stingers"
+        ],
+        "featured": true
+      }
+    ],
+    "added": "2026-06-25"
   },
   {
     "type": "festival",
     "name": "MAD COOL",
     "city": "Madrid",
-    "mapLink": null,
+    "mapLink": "https://maps.google.com/?q=Iberdrola+Music+Villaverde+Madrid",
     "pricing": "1 day – €95, 4 days – €230",
     "link": "https://madcoolfestival.es/",
     "concerts": [
       {
         "artist": "Foo Fighters",
-        "dates": ["2026-07-08"],
-        "support": [],
+        "dates": [
+          "2026-07-08"
+        ],
+        "support": [
+          "Moby",
+          "The War On Drugs",
+          "Wolf Alice",
+          "The Last Dinner Party",
+          "The Warning",
+          "The Vaccines",
+          "Jehnny Beth",
+          "The War And Treaty",
+          "Palaye Royale",
+          "Dogstar",
+          "Hot Milk"
+        ],
         "featured": true
       },
       {
         "artist": "Florence + The Machine",
-        "dates": ["2026-07-09"],
-        "support": [],
+        "dates": [
+          "2026-07-09"
+        ],
+        "support": [
+          "Jennie",
+          "Lorde",
+          "Teddy Swims",
+          "Zara Larsson",
+          "Reneé Rapp",
+          "Charlie Puth",
+          "The Blaze",
+          "CMAT",
+          "Boys Noize"
+        ],
         "featured": true
       },
       {
         "artist": "Twenty One Pilots",
-        "dates": ["2026-07-10"],
-        "support": [],
+        "dates": [
+          "2026-07-10"
+        ],
+        "support": [
+          "Kings of Leon",
+          "Pixies",
+          "Halsey",
+          "A Perfect Circle",
+          "Interpol",
+          "Sigrid",
+          "Holly Humberstone",
+          "Polo & Pan"
+        ],
         "featured": true
       },
       {
-        "artist": "Pulp",
-        "dates": ["2026-07-09"],
-        "support": []
-      },
-      {
-        "artist": "Lorde",
-        "dates": ["2026-07-10"],
-        "support": []
-      },
-      {
-        "artist": "Kings of Leon",
-        "dates": ["2026-07-11"],
-        "support": []
-      },
-      {
         "artist": "Nick Cave & The Bad Seeds",
-        "dates": ["2026-07-11"],
-        "support": []
+        "dates": [
+          "2026-07-11"
+        ],
+        "support": [
+          "Pulp",
+          "The Black Crowes",
+          "David Byrne",
+          "Kasabian",
+          "Jalen Ngonda",
+          "Matt Berninger",
+          "The Reytons",
+          "Richie Hawtin",
+          "Nina Kraviz"
+        ],
+        "featured": true
       }
     ],
     "added": "2026-06-23"
   },
   {
+    "type": "festival",
+    "name": "CRUÏLLA",
+    "city": "Barcelona",
+    "mapLink": "https://maps.google.com/?q=Parc+del+Forum+Barcelona",
+    "pricing": "1 day – €45, 4 days – €162",
+    "link": "https://www.cruillabarcelona.cat/en/",
+    "concerts": [
+      {
+        "artist": "Halsey",
+        "dates": [
+          "2026-07-08"
+        ],
+        "support": [
+          "Reneé Rapp",
+          "Sen Senra",
+          "Sigrid",
+          "Yami Safdie",
+          "Sadie Jean",
+          "Bacilos",
+          "Joaquina"
+        ],
+        "featured": true
+      },
+      {
+        "artist": "Pixies",
+        "dates": [
+          "2026-07-09"
+        ],
+        "support": [
+          "Garbage",
+          "Suede",
+          "Sidonie",
+          "Mishima",
+          "Maika Makovski",
+          "Mazoni"
+        ],
+        "featured": true
+      },
+      {
+        "artist": "David Byrne",
+        "dates": [
+          "2026-07-10"
+        ],
+        "support": [
+          "The Black Crowes",
+          "Bomba Estéreo",
+          "Meute",
+          "Ezra Collective",
+          "Sampa the Great",
+          "Alizzz"
+        ],
+        "featured": true
+      },
+      {
+        "artist": "Faithless",
+        "dates": [
+          "2026-07-11"
+        ],
+        "support": [
+          "The Hives",
+          "Rigoberta Bandini",
+          "Two Door Cinema Club",
+          "Jovanotti",
+          "Jon Batiste",
+          "Polo & Pan",
+          "Son Rompe Pera"
+        ],
+        "featured": true
+      }
+    ],
+    "added": "2026-06-25"
+  },
+  {
+    "type": "festival",
+    "name": "BILBAO BBK LIVE",
+    "city": "Bilbao",
+    "mapLink": "https://maps.google.com/?q=Kobetamendi+Bilbao",
+    "pricing": "1 day – €75, 3 days – €165",
+    "link": "https://bilbaobbklive.com/en/",
+    "concerts": [
+      {
+        "artist": "Calvin Harris",
+        "dates": [
+          "2026-07-09"
+        ],
+        "support": [
+          "David Byrne",
+          "FKA twigs",
+          "Dani Fernández",
+          "Paris Paloma",
+          "Belén Aguilera",
+          "Apparat",
+          "Fatoumata Diawara",
+          "Hemlocke Springs"
+        ],
+        "featured": true
+      },
+      {
+        "artist": "Robbie Williams",
+        "dates": [
+          "2026-07-10"
+        ],
+        "support": [
+          "Alabama Shakes",
+          "Belle and Sebastian",
+          "La M.O.D.A.",
+          "Richie Hawtin",
+          "Soulwax",
+          "Tomora",
+          "CMAT",
+          "Xoel López",
+          "Thee Sacred Souls"
+        ],
+        "featured": true
+      },
+      {
+        "artist": "Dellafuente",
+        "dates": [
+          "2026-07-11"
+        ],
+        "support": [
+          "IDLES",
+          "Lily Allen",
+          "Interpol",
+          "Charlotte de Witte",
+          "Zaz",
+          "Horsegiirl",
+          "Nu Genea"
+        ],
+        "featured": true
+      }
+    ],
+    "added": "2026-06-25"
+  },
+  {
     "artist": "Bruno Mars",
     "dates": [
-      "2026-07-10"
+      "2026-07-10",
+      "2026-07-11"
     ],
     "price": "",
-    "link": "https://www.livenation.es/",
+    "link": "https://www.ticketmaster.es/search?q=Bruno%20Mars",
     "festival": null,
     "city": "Madrid",
     "lastInPortugal": null,
     "added": "2026-06-23"
+  },
+  {
+    "artist": "Fatboy Slim",
+    "dates": [
+      "2026-07-14"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=Fatboy%20Slim",
+    "festival": null,
+    "city": "Sevilla",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "Sting",
+    "dates": [
+      "2026-07-15"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=Sting",
+    "festival": null,
+    "city": "Granada",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "Jamiroquai",
+    "dates": [
+      "2026-07-16"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=Jamiroquai",
+    "festival": null,
+    "city": "Sevilla",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
   },
   {
     "artist": "My Chemical Romance",
@@ -194,27 +719,261 @@
     "added": "2026-06-23"
   },
   {
+    "artist": "ZZ Top",
+    "dates": [
+      "2026-07-18",
+      "2026-07-19",
+      "2026-07-20",
+      "2026-07-22",
+      "2026-07-23"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=ZZ%20Top",
+    "festival": null,
+    "city": "Pamplona, Barcelona, Madrid, Valencia & Murcia",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "Pet Shop Boys",
+    "dates": [
+      "2026-07-23",
+      "2026-07-25"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=Pet%20Shop%20Boys",
+    "festival": null,
+    "city": "Valencia & Santander",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "Morrissey (the Smiths)",
+    "dates": [
+      "2026-07-25",
+      "2026-07-29"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=Morrissey",
+    "festival": null,
+    "city": "Barcelona & Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "Ye",
+    "dates": [
+      "2026-07-30"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=Kanye%20West",
+    "festival": null,
+    "city": "Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
     "artist": "The Weeknd",
     "dates": [
-      "2026-08-28"
+      "2026-08-28",
+      "2026-08-29",
+      "2026-08-30",
+      "2026-09-01"
     ],
     "price": "",
     "link": "https://www.livenation.es/en/event/the-weeknd-after-hours-til-dawn-tour-madrid-tickets-edp1617052",
     "festival": null,
-    "city": "Madrid",
+    "city": "Madrid & Barcelona",
     "lastInPortugal": null,
     "added": "2026-06-23"
   },
   {
+    "artist": "The Neighbourhood",
+    "dates": [
+      "2026-09-10"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=The%20Neighbourhood",
+    "festival": null,
+    "city": "Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "The Black Keys",
+    "dates": [
+      "2026-09-13"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=The%20Black%20Keys",
+    "festival": null,
+    "city": "Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "Shakira",
+    "dates": [
+      "2026-09-18",
+      "2026-09-19",
+      "2026-09-20",
+      "2026-09-25",
+      "2026-09-26",
+      "2026-09-27",
+      "2026-10-02",
+      "2026-10-03",
+      "2026-10-04",
+      "2026-10-09",
+      "2026-10-10",
+      "2026-10-11"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=Shakira",
+    "festival": null,
+    "city": "Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "Evanescence",
+    "dates": [
+      "2026-10-01",
+      "2026-10-02"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=Evanescence",
+    "festival": null,
+    "city": "Barcelona & Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
     "artist": "Placebo",
     "dates": [
-      "2026-10-01"
+      "2026-10-01",
+      "2026-10-03"
     ],
     "price": "",
     "link": "https://www.ticketmaster.es/artist/placebo-tickets/5183",
     "festival": null,
-    "city": "Madrid",
+    "city": "Madrid & Barcelona",
     "lastInPortugal": null,
     "added": "2026-06-23"
+  },
+  {
+    "artist": "Deep Purple",
+    "dates": [
+      "2026-10-19",
+      "2026-10-20"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=Deep%20Purple",
+    "festival": null,
+    "city": "Barcelona",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "The Strokes",
+    "dates": [
+      "2026-10-20"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=The%20Strokes",
+    "festival": null,
+    "city": "Barcelona",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "Niall Horan",
+    "dates": [
+      "2026-10-25"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=Niall%20Horan",
+    "festival": null,
+    "city": "Barcelona",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "Jungle",
+    "dates": [
+      "2026-10-26"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=Jungle",
+    "festival": null,
+    "city": "Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "Simple Plan",
+    "dates": [
+      "2026-10-26",
+      "2026-10-27"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=Simple%20Plan",
+    "festival": null,
+    "city": "Barcelona & Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "Pitbull",
+    "dates": [
+      "2026-11-04",
+      "2026-11-05"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=Pitbull",
+    "festival": null,
+    "city": "Barcelona & Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "Bryan Adams",
+    "dates": [
+      "2026-11-06",
+      "2026-11-07",
+      "2026-11-08",
+      "2026-11-10",
+      "2026-11-13",
+      "2026-11-14"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=Bryan%20Adams",
+    "festival": null,
+    "city": "Murcia, Zaragoza, Valencia, Madrid, Bilbao & Barcelona",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "Tokio Hotel",
+    "dates": [
+      "2026-11-23"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=Tokio%20Hotel",
+    "festival": null,
+    "city": "Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
+  },
+  {
+    "artist": "Papa Roach",
+    "dates": [
+      "2026-12-04"
+    ],
+    "price": "",
+    "link": "https://www.ticketmaster.es/search?q=Papa%20Roach",
+    "festival": null,
+    "city": "Madrid",
+    "lastInPortugal": null,
+    "added": "2026-06-25"
   }
 ]
