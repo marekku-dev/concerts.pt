@@ -111,7 +111,7 @@ footer a {
 }
 
 .intro-card {
-    padding: 16px 16px 64px 16px;
+    padding: 12px 12px 64px;
     background-color: #fff;
 }
 
@@ -391,7 +391,7 @@ a.city-link {
 .month-group,
 .subscribe {
     background-color: #fff;
-    padding: 16px;
+    padding: 12px;
 }
 
 .month-group {

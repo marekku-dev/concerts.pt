@@ -19,7 +19,7 @@
     /* 4px до списка снизу — как гэп между всеми карточками. Без
        border-radius: карточки без скруглений. */
     margin: -4px 0 4px;
-    padding: 8px 10px;
+    padding: 8px 12px;
     /* Плоская в исходном положении; тень включается при залипании
        (класс .is-stuck ставит JS через IntersectionObserver). */
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0), 0 4px 12px -6px rgba(0, 0, 0, 0);
