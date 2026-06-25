@@ -421,6 +421,7 @@ Promise.all([
         // Скользящий индикатор (.country-toggle-thumb) ездит под активной
         // кнопкой; ширина/сдвиг задаются в JS по числу/индексу кнопок.
         root.innerHTML = `
+            <div class="toggle-bar-sentinel" aria-hidden="true"></div>
             <div class="country-toggle-bar">
                 <div class="past-slot">
                     <div class="past-slot-pane" data-country="pt"></div>
@@ -449,6 +450,19 @@ Promise.all([
         const buttons = root.querySelectorAll('.country-toggle-btn');
         const pastSlotPt = root.querySelector('.past-slot-pane[data-country="pt"]');
         const pastSlotEs = root.querySelector('.past-slot-pane[data-country="es"]');
+
+        // Тень появляется только когда плашка реально залипла у верха.
+        // Sentinel стоит над плашкой; пока он виден — плашка на месте,
+        // как только он ушёл за верхнюю кромку — добавляем .is-stuck.
+        const bar = root.querySelector('.country-toggle-bar');
+        const sentinel = root.querySelector('.toggle-bar-sentinel');
+        if (bar && sentinel && 'IntersectionObserver' in window) {
+            const stuckObserver = new IntersectionObserver(
+                ([entry]) => bar.classList.toggle('is-stuck', !entry.isIntersecting),
+                { threshold: [0] }
+            );
+            stuckObserver.observe(sentinel);
+        }
 
         let activeCountry = 'pt';
 

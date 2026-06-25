@@ -25,6 +25,21 @@
     background: #fff;
     margin: 0 -10px 10px;
     padding: 8px 10px;
+    /* Плоская в исходном положении; тень включается при залипании
+       (класс .is-stuck ставит JS через IntersectionObserver). */
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0), 0 4px 12px -6px rgba(0, 0, 0, 0);
+    transition: box-shadow 0.18s ease;
+}
+
+/* Залипшее состояние: тонкая разделительная линия + мягкое
+   рассеивание вниз, отделяющее плашку от уезжающего контента. */
+.country-toggle-bar.is-stuck {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 4px 12px -6px rgba(0, 0, 0, 0.12);
+}
+
+/* Невидимый маркер над плашкой — за ним следит IntersectionObserver. */
+.toggle-bar-sentinel {
+    height: 0;
 }
 
 /* Левая часть плашки — «Show past concerts» активной страны.
