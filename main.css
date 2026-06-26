@@ -159,7 +159,7 @@ footer a {
 }
 
 .concert.expanded, .festival-block.expanded {
-	margin-top: 4px;
+	margin-top: 6px;
 	margin-bottom: 4px;
 }
 
@@ -388,7 +388,11 @@ a.city-link {
      3) закомментировать блок ниже.
    ============================================================ */
 
-.month-group,
+.month-group {
+    background-color: #fff;
+    padding: 6px 12px 12px 12px;
+}
+
 .subscribe {
     background-color: #fff;
     padding: 12px;
